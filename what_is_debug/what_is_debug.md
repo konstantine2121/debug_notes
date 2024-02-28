@@ -29,5 +29,7 @@
 
 # Навигация
 
-[На главную](app://obsidian.md/Readme.md)
+[На главную](/Readme.md)
+
+
 
