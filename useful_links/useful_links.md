@@ -45,4 +45,4 @@ https://learn.microsoft.com/en-us/visualstudio/debugger/using-debuggertypeproxy-
 
 # Навигация
 
-[На главную](Readme.md)
+[На главную](/Readme.md)
