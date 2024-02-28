@@ -7,6 +7,7 @@ This site was built using [GitHub Pages](https://pages.github.com/).
 ```
 [what_is_debug/what_is_debug.md](what_is_debug/what_is_debug.md)
 
+<iframe src="https://raw.githubusercontent.com/konstantine2121/debug_notes/main/what_is_debug/what_is_debug.md"></iframe>
 
 ```
 ![what_is_debug/what_is_debug.md](what_is_debug/what_is_debug.md)
