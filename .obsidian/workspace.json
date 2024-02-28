@@ -18,22 +18,21 @@
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "3b1a441b39914889",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "65de0042d6f0e3ca",
+            "id": "139f30f9c21af0f8",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Readme.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -143,12 +142,12 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -160,11 +159,14 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "d35452776bfc95e9",
+  "active": "139f30f9c21af0f8",
   "lastOpenFiles": [
-    "debug_notes",
-    "what_is_debug/what_is_debug.md",
+    "useful_links/useful_links.md",
     "Readme.md",
+    "what_is_debug/what_is_debug.md",
+    "Untitled.md",
+    "useful_links",
+    "debug_notes",
     "what_is_debug"
   ]
 }
