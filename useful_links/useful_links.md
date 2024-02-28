@@ -29,6 +29,11 @@ https://learn.microsoft.com/ru-ru/troubleshoot/developer/visualstudio/debuggers/
 
 https://learn.microsoft.com/en-us/dotnet/framework/debug-trace-profile/enhancing-debugging-with-the-debugger-display-attributes
 
+https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.debuggerdisplayattribute?view=net-8.0
+
+https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.debuggerbrowsableattribute?view=net-8.0
+
+https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.debuggertypeproxyattribute?view=net-8.0
 ### Создание своих представлений данных
 
 https://learn.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-managed-objects?view=vs-2022
