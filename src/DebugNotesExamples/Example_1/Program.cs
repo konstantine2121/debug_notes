@@ -6,7 +6,7 @@
         {
             int times = 10;
 
-            for (int i = 0; i > times; i++)
+            for (int i = 0; i < times; i++)
             {
                 Console.WriteLine("Hello, World!");
             }
