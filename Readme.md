@@ -77,8 +77,8 @@
 
 ![](/attachments/Pasted%20image%2020240228220902.png)
 
-| Разделы                                             |
-| --------------------------------------------------- |
-| [Что такое отладка](what_is_debug/what_is_debug.md) |
-| [Полезные ссылки](useful_links/useful_links.md)     |
-|                                                     |
+| Разделы                                                             |
+| ------------------------------------------------------------------- |
+| [Что такое отладка](what_is_debug/what_is_debug.md)                 |
+| [Список примеров с отладкой](debug_examples/debug_examples_list.md) |
+| [Полезные ссылки](useful_links/useful_links.md)                     |
