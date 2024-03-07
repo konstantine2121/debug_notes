@@ -69,8 +69,8 @@ namespace Example_2_Debug
 
         public void AttackEnemySquad(Squad enemySquad)
         {
-            Unit currentUnit = GetRamdomUnit();
-            Unit enemyUnit = enemySquad.GetRamdomUnit();
+            Unit currentUnit = TryGetRamdomUnit();
+            Unit enemyUnit = enemySquad.TryGetRamdomUnit();
 
             if (currentUnit is Warior)
             {
@@ -79,7 +79,7 @@ namespace Example_2_Debug
 
             if (currentUnit is Suporter)
             {
-                currentUnit.TakeAction(GetRamdomUnit());
+                currentUnit.TakeAction(TryGetRamdomUnit());
             }
         }
 
@@ -94,9 +94,16 @@ namespace Example_2_Debug
             }
         }
 
-        private Unit GetRamdomUnit()
+        private bool TryGetRamdomUnit(out Unit unit)
         {
-            return _units[UserUtils.GetRandomValue(_units.Count)];
+            if (_units.Count == 0)
+            {
+                unit = null; 
+                return false;
+            }
+            
+            unit = _units[UserUtils.GetRandomValue(_units.Count)];
+            return true;
         }
 
         public string Name { get; private set; }
