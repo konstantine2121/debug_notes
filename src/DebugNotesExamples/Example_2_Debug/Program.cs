@@ -52,7 +52,7 @@ namespace Example_2_Debug
         }
     }
 
-    class Squad
+    public class Squad
     {
         private List<Unit> _units;
 
@@ -102,7 +102,7 @@ namespace Example_2_Debug
         public string Name { get; private set; }
     }
 
-    abstract class Unit
+    public abstract class Unit
     {
         protected int maxHealth;
         protected int currentHealth;
@@ -143,7 +143,7 @@ namespace Example_2_Debug
         }
     }
 
-    abstract class Damager : Unit
+    public abstract class Damager : Unit
     {
         protected int currentDamage;
 
@@ -162,7 +162,7 @@ namespace Example_2_Debug
         protected abstract int GetDamage();
     }
 
-    abstract class Suporter : Unit
+    public abstract class Suporter : Unit
     {
         protected int maxMana;
         protected int currentMana;
@@ -181,7 +181,7 @@ namespace Example_2_Debug
         public abstract void UseBuffSkill(Unit unit);
     }
 
-    class ArmorBuffer : Suporter
+    public class ArmorBuffer : Suporter
     {
         int armorBuffPoints = 5;
 
@@ -212,7 +212,7 @@ namespace Example_2_Debug
         }
     }
 
-    class ShieldMan : Damager
+    public class ShieldMan : Damager
     {
         public ShieldMan()
         {
@@ -236,7 +236,7 @@ namespace Example_2_Debug
         }
     }
 
-    class Warior : Damager
+    public class Warior : Damager
     {
         public Warior()
         {
@@ -260,7 +260,7 @@ namespace Example_2_Debug
         }
     }
 
-    class ArmyFactory
+    public class ArmyFactory
     {
         private int _maxPercent = 100;
 
@@ -300,7 +300,7 @@ namespace Example_2_Debug
         }
     }
 
-    class UserUtils
+    public class UserUtils
     {
         private static Random s_random = new Random();
 

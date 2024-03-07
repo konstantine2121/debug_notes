@@ -1,5 +1,20 @@
 # Исходники
 
+Оригинальная версия исходников лежит тут
+
+https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_2_Original/Program.cs
+
+Модифицированная лежит тут
+
+https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_2_Debug/Program.cs
+
+Код тестов лежит тут
+
+https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_2_Debug_Tests/Program.cs
+
+----
+
+Листинг оригинальной версии
 ```cs
 using System;
 using System.Collections.Generic;
@@ -320,9 +335,11 @@ namespace Example_2_Debug
 
 ![](attachments/Pasted%20image%2020240307162601.png)
 
-При нескольких запусках приложения мы видим одну и ту же картину.
+При нескольких запусках приложения мы видим одну и ту же картину - никто из бойцов не выжил.
 
 Нужно убедиться в том что эта картина не происходит при каждом запуске.
+## Создание отдельного проекта для тестирования
+
 
 Для этого создадим отдельный проект **Example_2_Debug_Tests**, в котором напишем простые вспомогательные классы для тестирования.
 
@@ -337,8 +354,31 @@ namespace Example_2_Debug
 
 ![](attachments/Pasted%20image%2020240307163638.png)
 
+Теперь мы можем ссылаться на первый проект используя  соответствующее пространство имен
+
+```cs
+using Example_2_Debug;
+```
 
 
+
+![](attachments/Pasted%20image%2020240307163758.png)
+
+Но как мы видим IDE подчеркивает нам код как ошибку идем в класс **WarField**
+
+![](attachments/Pasted%20image%2020240307163941.png)
+
+мы видим что у класса не прописан модификатор доступа - те по умолчанию он private, а чтобы его использовать мы должны указать public
+
+```cs
+    public class WarField
+```
+
+и так нужно поступить со всеми классами которые мы собираемся тестировать извне
+
+
+
+--
 
 ----
 
