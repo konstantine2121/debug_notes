@@ -510,7 +510,42 @@ _countOfWarior = unitsCount / _maxPercent * _percentOfWarior;
 
 Почему же так происходит что на выходе 0?
 
-Можно в контрольный значения добавля
+Можно в контрольный значения добавлять не только переменные но и целые выражения - для этого достаточно их выделить и в контекстном меню нажать `Добавить контрольное значение`
+
+![](attachments/Pasted%20image%2020240307171809.png)
+![](attachments/Pasted%20image%2020240307172134.png)
+
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+||unitsCount|10|int|
+||_maxPercent|100|int|
+||_percentOfWarior|30|int|
+||_countOfWarior|0|int|
+||unitsCount / _maxPercent|0|int|
+
+```
+unitsCount / _maxPercent == 0
+10 
+```
+
+Нужно присмотреться повнимательнее к переменным `unitsCount` и `_maxPercent`
+
+unitsCount - это входной аргумент функции типа int
+
+```cs
+public Squad Create(string name, int unitsCount)
+```
+
+`_maxPercent` - это поле класса типа int
+
+```cs
+public class ArmyFactory
+{
+    private int _maxPercent = 100;
+```
+
+
 
 231--
 
