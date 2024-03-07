@@ -161,7 +161,11 @@
             }
         }
 
-        public abstract void TakeAction(Unit unit);
+        public virtual void TakeAction(Unit unit)
+        {
+            ClearBuffs();
+        }
+
         public abstract Unit Clone();
 
         public void GetBuff(int armor)
@@ -188,6 +192,7 @@
 
         public override void TakeAction(Unit unit)
         {
+            base.TakeAction(unit);
             Attack(unit);
         }
 
@@ -235,6 +240,7 @@
 
         public override void TakeAction(Unit ally)
         {
+            base.TakeAction(ally);
             UseBuffSkill(ally);
         }
 

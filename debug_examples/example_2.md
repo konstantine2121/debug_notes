@@ -1321,8 +1321,43 @@ CurrentArmor > MaxArmor
 
 Очевидно, что есть ошибка при наложении бафа на броню
 
+Бегло глядя на код мы находим класс **ArmorBuffer** c методом UseBuffSkill
+
+```cs
+public class ArmorBuffer : Suporter
+{
+     public override void UseBuffSkill(Unit unit)
+ {
+     unit.GetBuff(armorBuffPoints);
+ }
+}
+```
+
+Вот сюда мы и поставим точку останова
+
+![](attachments/Pasted%20image%2020240307215338.png)
+
+Отладка перекидывает нас в метод GetBuff
+
+```cs
+public abstract class Unit : IUnit
+
+        public void GetBuff(int armor)
+        {
+            currentArmor += armor;
+        }
+```
+
+Очевидно, что в нем нет никаких ограничений на buff
+
+А если взглянуть на код ниже
+
+![](attachments/Pasted%20image%2020240307215639.png)
+
+То видно что есть метод ClearBuffs который должен очищать бонусы брони у которого 0 ссылок - то есть его ни разу не вызывают. Вот тут очевидно и есть подвох.
 
 .
+
 ----
 
 | Навигация                 |                                             |     |
