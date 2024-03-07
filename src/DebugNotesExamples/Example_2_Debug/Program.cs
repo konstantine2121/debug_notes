@@ -264,9 +264,9 @@ namespace Example_2_Debug
     {
         private int _maxPercent = 100;
 
-        private int _percentOfWarior = 30;
-        private int _percentOfShieldMan = 35;
-        private int _percentOfArmorBuffer = 35;
+        private float _percentOfWarior = 30;
+        private float _percentOfShieldMan = 35;
+        private float _percentOfArmorBuffer = 35;
 
         private int _countOfWarior;
         private int _countOfShieldMan;

@@ -526,8 +526,14 @@ _countOfWarior = unitsCount / _maxPercent * _percentOfWarior;
 
 ```
 unitsCount / _maxPercent == 0
-10 
+10 / 100 == 0
 ```
+А ожидаем
+
+```
+10 / 100 == 0.1
+```
+
 
 Нужно присмотреться повнимательнее к переменным `unitsCount` и `_maxPercent`
 
@@ -545,7 +551,12 @@ public class ArmyFactory
     private int _maxPercent = 100;
 ```
 
+Как мы знаем при делении int на int на выходе мы получаем тоже int.
+int не может в себе хранить дробные значения - поэтому там и оказывается 0
+исправляем это в несколько
 
+1) мы изменим типы полей (`_percentOfWarior, _percentOfShieldMan, _percentOfArmorBuffer`) на float, чтобы можно было в них хранить и дробные значения процентов (33,5 и тп.)
+2) В формулах перед `_maxPercent` мы добавим явное преобразование типа во float, чтобы конструкции вида `int / int = int` мы пришли к `int / float = float`
 
 231--
 
