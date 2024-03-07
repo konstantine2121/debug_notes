@@ -558,6 +558,25 @@ int не может в себе хранить дробные значения -
 1) мы изменим типы полей (`_percentOfWarior, _percentOfShieldMan, _percentOfArmorBuffer`) на float, чтобы можно было в них хранить и дробные значения процентов (33,5 и тп.)
 2) В формулах перед `_maxPercent` мы добавим явное преобразование типа во float, чтобы конструкции вида `int / int = int` мы пришли к `int / float = float`
 
+После первых 2х шагов видим следующую картину
+
+![](attachments/Pasted%20image%2020240307173850.png)
+
+в переменную `_countOfWarrior` мы не можем положить тип float т.к. она является типом int
+следовательно нужно результат выражения привести к виду в котором будет округлен результат(Math.Round) и преобразован к типу int.
+
+Для этого используем функцию 
+
+конечный результат выглядит вот так
+
+```cs
+_countOfWarior = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfWarior);
+_countOfShieldMan = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfShieldMan);
+_countOfArmorBuffer = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfArmorBuffer);
+```
+
+Так как мы поменяли исзодный код - то нам нужно сохранить результат и 
+
 231--
 
 
