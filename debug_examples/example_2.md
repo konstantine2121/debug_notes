@@ -1271,8 +1271,58 @@ enemyUnit.CurrentArmor > 50
 
 урон меньше брони - поэтому атака не проходит.
 
+Очевидно, что нужно либо менять условие проверки либо сделать ограничение по количеству максимальной брони
+
+Еще раз перезапустим отладку
+
+![](attachments/Pasted%20image%2020240307214726.png)
 
 
+||Имя|Значение|Тип|
+|---|---|---|---|
+|◢|currentUnit|currentHealth = 20, currentArmor = 20|Example_2_Debug.Unit {Example_2_Debug.ShieldMan}|
+||currentHealth|20|int|
+||currentArmor|20|int|
+||CurrentArmor|20|int|
+||CurrentHealth|20|int|
+||IsDead|false|bool|
+||MaxArmor|10|int|
+||MaxHealth|100|int|
+||currentDamage|120|int|
+||maxArmor|10|int|
+||maxHealth|100|int|
+|◢|enemyUnit|CurrentArmor = 51, CurrentHealth = 39|Example_2_Debug.Unit {Example_2_Debug.ArmorBuffer}|
+||CurrentArmor|51|int|
+||CurrentHealth|39|int|
+||IsDead|false|bool|
+||MaxArmor|1|int|
+||MaxHealth|100|int|
+||armorBuffPoints|5|int|
+||currentArmor|51|int|
+||currentHealth|39|int|
+||currentMana|100|int|
+||currentManaRegen|25|int|
+||maxArmor|1|int|
+||maxHealth|100|int|
+||maxMana|100|int|
+
+И внимательно изучаем статусы юнитов
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+|◢|enemyUnit|CurrentArmor = 51, CurrentHealth = 39|Example_2_Debug.Unit {Example_2_Debug.ArmorBuffer}|
+||CurrentArmor|51|int|
+||MaxArmor|1|int|
+
+```cs
+CurrentArmor > MaxArmor
+51 > 1
+```
+
+Очевидно, что есть ошибка при наложении бафа на броню
+
+
+.
 ----
 
 | Навигация                 |                                             |     |
