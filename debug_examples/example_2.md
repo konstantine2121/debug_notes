@@ -1078,7 +1078,38 @@ if (currentUnit is Suporter)
 
 А если посмотреть внимательно на тип юнита - то мы увидим что он **ShieldMan** то логика для юнита с щитом не определена вообще
 
+Проверим цепочку наследования
 
+```cs
+ public class ShieldMan : Damager
+ public abstract class Damager : Unit
+```
+
+Соответственно `ShieldMan Damager Unit` не входят в группу наследников `Warior Suporter`
+
+При этом
+
+```
+Warior : Damager
+```
+
+Warior наследуется от Damager
+
+```cs
+if (currentUnit is Warior)
+{
+    currentUnit.TakeAction(enemyUnit);
+}
+```
+
+исправим на 
+
+```cs
+if (currentUnit is Damager)
+{
+    currentUnit.TakeAction(enemyUnit);
+}
+```
 
 
 ----

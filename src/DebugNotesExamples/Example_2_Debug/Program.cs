@@ -75,7 +75,7 @@
                 return;
             }
 
-            if (currentUnit is Warior)
+            if (currentUnit is Damager)
             {
                 currentUnit.TakeAction(enemyUnit);
             }
