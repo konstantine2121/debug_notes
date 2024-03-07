@@ -575,7 +575,29 @@ _countOfShieldMan = (int)Math.Round( unitsCount / (float)_maxPercent * _percentO
 _countOfArmorBuffer = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfArmorBuffer);
 ```
 
-Так как мы поменяли исзодный код - то нам нужно сохранить результат и 
+Так как мы поменяли исходный код - то нам нужно сохранить результат и пересобрать приложение.
+
+Запускаем отладку
+
+![](attachments/Pasted%20image%2020240307174913.png)
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+||unitsCount|10|int|
+||_countOfWarior|3|int|
+||_countOfShieldMan|4|int|
+||_countOfArmorBuffer|4|int|
+|▶|units|Count = 11|System.Collections.Generic.List<Example_2_Debug.Unit>|
+
+Видим что ситуация изменилась и на выходе у нас есть список на 11 юнитов.
+
+Стоп! 11?
+
+Перепроверим себя - в окне контрольных значений нажимаем дважды на строчку "Добавить элемент в контрольное значение" и начинаем печатать код
+![](attachments/Pasted%20image%2020240307175441.png)
+
+А сколько передали в метод? 10!
+
 
 231--
 
