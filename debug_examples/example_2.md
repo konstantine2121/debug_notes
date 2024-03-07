@@ -401,17 +401,88 @@ tests.RunMultiple(100);
 
 Нажмем несколько раз F10 
 
-Для переменных ```
-_firstArmy
-``` и _secondArmy добавим
+Для переменных `_firstArmy` и `_secondArmy` добавим их в список контрольных значений
+
+Для этого ставим курсор на переменную и кликаем правуюю кнопку мыши - в контекстном меню выбираем кнопку добавить в контрольные значения
+
+![](attachments/Pasted%20image%2020240307165835.png)
+
+Окно с контрольными значениями можно найти тут
+
+Отладка - Окна - Контрольные значения
+
+![](attachments/Pasted%20image%2020240307170050.png)
+
+Теперь можно увидеть текущее состояние нашей программы
 
 
---
+![](attachments/Pasted%20image%2020240307170156.png)
+
+Как мы видим 
+
+```cs
+        public WarField(int armyCount, string firstArmyName, string secondArmyName)
+        {
+            _firstArmy = _armyFactory.Create(firstArmyName, armyCount);
+            _secondArmy = _armyFactory.Create(secondArmyName, armyCount);
+        }
+```
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+|◢|_firstArmy|{Example_2_Debug.Squad}|Example_2_Debug.Squad|
+||Name|"First"|string|
+||▶ _units|Count = 0|System.Collections.Generic.List<Example_2_Debug.Unit>|
+|◢|_secondArmy|{Example_2_Debug.Squad}|Example_2_Debug.Squad|
+||Name|"Second"|string|
+||▶ _units|Count = 0|System.Collections.Generic.List<Example_2_Debug.Unit>|
+
+Значение `Count` у полей `_units` переменных `_firstArmy _secondArmy` равно 0 -- соответственно никто ни с кем не воюет и все изначально мертвы
+
+Соответственно проблема скорее всего в методе Create класса ArmyFactory
+
+
+Листинг класса 
+```
+public class ArmyFactory
+{
+    private int _maxPercent = 100;
+
+    private int _percentOfWarior = 30;
+    private int _percentOfShieldMan = 35;
+    private int _percentOfArmorBuffer = 35;
+
+    private int _countOfWarior;
+    private int _countOfShieldMan;
+    private int _countOfArmorBuffer;
+
+    public Squad Create(string name, int unitsCount)
+    {
+        List<Unit> units = new List<Unit>();
+
+        ArmorBuffer buffer = new ArmorBuffer();
+        ShieldMan shieldMan = new ShieldMan();
+        Warior warior = new Warior();
+
+        _countOfWarior = unitsCount / _maxPercent * _percentOfWarior;
+        _countOfShieldMan = unitsCount / _maxPercent * _percentOfShieldMan;
+        _countOfArmorBuffer = unitsCount / _maxPercent * _percentOfArmorBuffer;
+
+        AddUnits(units, warior, _countOfWarior);
+        AddUnits(units, shieldMan, _countOfShieldMan);
+        AddUnits(units, buffer, _countOfArmorBuffer);
+
+        return new Squad(name, units);
+    }
+
+```
+
+231--
 
 
 
 ----
 
-| Навигация                 |                                        |     |
-| ------------------------- | -------------------------------------- | --- |
+| Навигация                 |                                             |     |
+| ------------------------- | ------------------------------------------- | --- |
 | [example_1](example_1.md) | [К списку примеров](debug_examples_list.md) |     |
