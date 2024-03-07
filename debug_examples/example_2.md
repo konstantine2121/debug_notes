@@ -665,7 +665,57 @@ _countOfArmorBuffer = unitsCount - createdUnits.Sum();
 
 ## Убеждаемся что метод Create работает стабильно на большом разбросе входных данных.
 
+Основной критерий для проверки, что мы на выходе получаем в отряде то же количество юнитов, что запросили при создании.
 
+Добавим следующие методы в класс Tests для проверки
+
+```cs
+ public void TestCreateSquadMultiple()
+ {
+     int errorCounter = 0;
+     int minValue = 1;
+     int maxValue = 10000;
+
+     ArmyFactory armyFactory = new ArmyFactory();
+
+     for (int numberOfUnitsToCreate = minValue; numberOfUnitsToCreate <= maxValue; numberOfUnitsToCreate++)
+     {
+         if (!TestCreateSquad(armyFactory, numberOfUnitsToCreate))
+         {
+             errorCounter++;
+         }
+     }
+
+     Console.WriteLine("Тестирование создания юнитов");
+     Console.WriteLine($"Минимальное количество юнитов для создания {minValue}");
+     Console.WriteLine($"Максимальное количество юнитов для создания {maxValue}");
+     Console.WriteLine($"Количество ошибок при создании {errorCounter}");
+ }
+
+ public bool TestCreateSquad(ArmyFactory armyFactory, int numberOfUnitsToCreate)
+ {
+     Squad squad = armyFactory.Create(numberOfUnitsToCreate.ToString(), numberOfUnitsToCreate);
+     return squad.GetUnitsCount() == numberOfUnitsToCreate;
+ }
+```
+
+Добавим запуск этого теста
+```cs
+  static void Main(string[] args)
+  {
+      Tests tests = new Tests();
+
+      //tests.RunMultiple(100);// Это нам сейчас не нужно
+
+      tests.TestCreateSquadMultiple();
+  }
+```
+
+Запускаем приложение
+
+![](attachments/Pasted%20image%2020240307191341.png)
+
+Видим что количество ошибок равно 0
 
 ## Итоги по методу Create
 
@@ -675,6 +725,27 @@ _countOfArmorBuffer = unitsCount - createdUnits.Sum();
 ----
 
 Можно продолжать работу с программой - в надежде что все работает.
+
+В классе для отладки изменим код
+
+```cs
+  static void Main(string[] args)
+{
+    Tests tests = new Tests();
+
+    tests.RunMultiple(1);
+
+    //tests.TestCreateSquadMultiple();
+}
+```
+
+
+![](attachments/Pasted%20image%2020240307191750.png)
+
+Видим что при одном запуске приложение отрабатывает корректно.
+
+Для надежности запустим его несколько раз - например 100.
+
 
 Пересобираем и запускам без отладки
 
