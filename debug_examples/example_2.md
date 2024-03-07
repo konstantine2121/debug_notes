@@ -331,7 +331,9 @@ namespace Example_2_Debug
 ```
 
 
-# Запуск приложения
+# Отладка
+
+# No one is alive
 
 ![](attachments/Pasted%20image%2020240307162601.png)
 
@@ -789,7 +791,7 @@ _countOfArmorBuffer = unitsCount - createdUnits.Sum();
 1) Приложение может отработать корректно
 2) Приложение может выкинуть исключение "вылет за границы массива"
 3) Приложение может войти в бесконечный цикл и не заканчивать свою работу
-## Как читать логи исключений
+# Как читать логи исключений
 
 Копия логов
 ```
@@ -807,7 +809,7 @@ D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug_Tests\bin\Debug\n
 
 Логи читаем сверху вниз
 
-### Конкретная ошибка
+## Конкретная ошибка
 ```
 Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
    at System.Collections.Generic.List`1.get_Item(Int32 index)
@@ -825,7 +827,7 @@ D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 9
 ```
 
 ----
-### Далее вниз
+## Далее вниз
 
 Далее, если идти вниз по цепочки то мы видим, что обращение к **GetRamdomUnit**
  было в методе **AttackEnemySquad**
@@ -847,7 +849,7 @@ D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 9
 ![](attachments/Pasted%20image%2020240307190150.png)
 
 
-## Пытаемся исправить вылет за границы массивы
+# Пытаемся исправить вылет за границы массивы
 
 ```cs
 private Unit GetRamdomUnit()
@@ -937,6 +939,15 @@ private bool TryGetRamdomUnit(out Unit unit)
 Пробуем запускать программу множество раз
 
 ![](attachments/Pasted%20image%2020240307200932.png)
+![](attachments/Pasted%20image%2020240307201030.png)
+
+![](attachments/Pasted%20image%2020240307201052.png)
+
+### Вывод
+
+Ошибки вылета за границу массива мы более не наблюдаем - но остается беда с зацикливанием программы.
+
+# Отлаживаем проблему с зацикливанием программы
 
 
 
