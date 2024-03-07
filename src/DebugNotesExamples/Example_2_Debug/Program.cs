@@ -115,7 +115,18 @@
         public string Name { get; private set; }
     }
 
-    public abstract class Unit
+    public interface IUnit 
+    {
+        int MaxHealth { get; }
+
+        int CurrentHealth { get; }
+
+        int CurrentArmor { get; }
+
+        int MaxArmor { get; }
+    }
+
+    public abstract class Unit : IUnit
     {
         protected int maxHealth;
         protected int currentHealth;
@@ -128,6 +139,14 @@
         }
 
         public bool IsDead { get; private set; }
+
+        public int MaxHealth => maxHealth;
+
+        public int CurrentHealth => currentHealth;
+
+        public int CurrentArmor => currentArmor;
+
+        public int MaxArmor => maxArmor;
 
         public void TakeDamage(int damage)
         {
