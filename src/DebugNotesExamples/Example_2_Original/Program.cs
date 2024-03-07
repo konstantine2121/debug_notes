@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TestJunior
+namespace Example_2_Original
 {
     internal class Program
     {

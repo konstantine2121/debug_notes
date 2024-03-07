@@ -1,7 +1,4 @@
-# Исходники
-
-```cs
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Example_2_Debug
@@ -313,21 +310,3 @@ namespace Example_2_Debug
         }
     }
 }
-```
-
-
-# Запуск приложения
-
-![](attachments/Pasted%20image%2020240307162601.png)
-
-При нескольких запусках приложения мы видим одну и ту же картину.
-
-Нужно убедиться в том что эта картина не происходит.
-
-
-
-----
-
-| Навигация                 |                                        |     |
-| ------------------------- | -------------------------------------- | --- |
-| [example_1](example_1.md) | [К списку примеров](debug_examples_list.md) |     |
