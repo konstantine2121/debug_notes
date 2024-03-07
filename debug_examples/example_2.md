@@ -415,6 +415,7 @@ tests.RunMultiple(100);
 
 Теперь можно увидеть текущее состояние нашей программы
 
+(Как можно зафиксировать значения переменных рядом с кодом - см [example_1](example_1.md))
 
 ![](attachments/Pasted%20image%2020240307170156.png)
 
@@ -442,8 +443,8 @@ tests.RunMultiple(100);
 Соответственно проблема скорее всего в методе Create класса ArmyFactory
 
 
-Листинг класса 
-```
+Листинг класса ArmyFactory
+```cs
 public class ArmyFactory
 {
     private int _maxPercent = 100;
@@ -476,6 +477,40 @@ public class ArmyFactory
     }
 
 ```
+
+Нужно отлаживать его - останавливаем текущую отладку убираем старые точки останова и ставим точку останова уже в методе Create
+
+![](attachments/Pasted%20image%2020240307171247.png)
+
+Как мы видим значения переменных 
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+||_countOfWarior|0|int|
+||_countOfShieldMan|0|int|
+||_countOfArmorBuffer|0|int|
+
+Равны 0 -- вот в этом и есть ошибка.
+
+присмотримся повнимательнее к строкам
+
+```cs
+_countOfWarior = unitsCount / _maxPercent * _percentOfWarior;
+_countOfShieldMan = unitsCount / _maxPercent * _percentOfShieldMan;
+_countOfArmorBuffer = unitsCount / _maxPercent * _percentOfArmorBuffer;
+```
+
+например к строке
+
+```cs
+_countOfWarior = unitsCount / _maxPercent * _percentOfWarior;
+```
+
+![](attachments/Pasted%20image%2020240307171620.png)
+
+Почему же так происходит что на выходе 0?
+
+Можно в контрольный значения добавля
 
 231--
 
