@@ -787,7 +787,8 @@ _countOfArmorBuffer = unitsCount - createdUnits.Sum();
 Мы увидели три ситуации
 
 1) Приложение может отработать корректно
-2) Приложение может выкинуть исключение 
+2) Приложение может выкинуть исключение "вылет за границы массива"
+3) Приложение может войти в бесконечный цикл и не заканчивать свою работу
 ## Как читать логи исключений
 
 Копия логов
@@ -846,9 +847,35 @@ D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 9
 ![](attachments/Pasted%20image%2020240307190150.png)
 
 
-231--
+## Пытаемся исправить вылет за границы массивы
+
+```cs
+private Unit GetRamdomUnit()
+{
+    return _units[UserUtils.GetRandomValue(_units.Count)];
+}
+```
+
+![](attachments/Pasted%20image%2020240307193530.png)
 
 
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+||UserUtils.GetRandomValue(_units.Count)|0|int|
+||_units.Count|0|int|
+||UserUtils.GetRandomValue(0)|0|int|
+
+Как мы видим если в списке 0 элементов - то
+
+```cs
+GetRandomValue(0) == 0
+```
+
+А при попытке обращения к эле
+```
+_units[0]
+```
 
 ----
 
