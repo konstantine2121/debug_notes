@@ -949,6 +949,62 @@ private bool TryGetRamdomUnit(out Unit unit)
 
 # Отлаживаем проблему с зацикливанием программы
 
+Запуск программы выглядит так
+
+```cs
+ public void RunSingle()
+ {
+     int armyCount = 10;
+
+     WarField warField = new WarField(armyCount, "First", "Second");
+
+     warField.BeginBattle();
+ }
+```
+
+```cs
+ public WarField(int armyCount, string firstArmyName, string secondArmyName)
+ {
+     _firstArmy = _armyFactory.Create(firstArmyName, armyCount);
+     _secondArmy = _armyFactory.Create(secondArmyName, armyCount);
+ }
+```
+
+В конструкторе WarField ничего странного не происходит - более того метод 
+`_armyFactory.Create` мы уже прогнали через множество тестов и убедились что он работает как надо
+
+изучаем метод
+
+```cs
+public void BeginBattle()
+{
+    while (_firstArmy.GetUnitsCount() != 0 && _secondArmy.GetUnitsCount() != 0)
+    {
+        _firstArmy.AttackEnemySquad(_secondArmy);
+        _secondArmy.CleanSquad();
+        _secondArmy.AttackEnemySquad(_firstArmy);
+        _firstArmy.CleanSquad();
+    }
+
+    if (_firstArmy.GetUnitsCount() == 0 && _secondArmy.GetUnitsCount() == 0)
+    {
+        Console.WriteLine("No one is alive");
+    }
+    else if (_firstArmy.GetUnitsCount() == 1 && _secondArmy.GetUnitsCount() == 0)
+    {
+        Console.WriteLine("first army is win");
+    }
+    else
+    {
+        Console.WriteLine("second army is win");
+    }
+}
+```
+
+
+В нем есть один цикл **while** -- ско
+
+
 
 
 
