@@ -1033,6 +1033,52 @@ public void BeginBattle()
 
 Значения здоровья бойцов перестали изменяться вообще
 
+Заглянем внутрь юнитов и увидим что значения брони стали аномально высокими
+
+![](attachments/Pasted%20image%2020240307205056.png)
+
+![](attachments/Pasted%20image%2020240307205146.png)
+
+Возможно проблема в этом - нужно проверить как работает логика нанесения урона
+
+Во время очередного цикла отладки используем кнопку F11 для того, чтобы заходить внутрь тела вызываемых методов
+
+Мы оказались внутри метода  AttackEnemySquad
+
+![](attachments/Pasted%20image%2020240307205414.png)
+
+Едем и далее по шагам через F11
+
+Доходим до логики
+
+![](attachments/Pasted%20image%2020240307205554.png)
+
+Во время отладки желтая стрелка не вошла не в блок
+```cs
+if (currentUnit is Warior)
+{
+    currentUnit.TakeAction(enemyUnit);
+}
+```
+
+```cs
+
+if (currentUnit is Suporter)
+{
+    if (TryGetRamdomUnit(out Unit ally))
+    {
+        currentUnit.TakeAction(ally);
+    }    
+}
+```
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+|▶|currentUnit|currentHealth = 75, currentArmor = 240|Example_2_Debug.Unit {Example_2_Debug.ShieldMan}|
+
+А если посмотреть внимательно на тип юнита - то мы увидим что он **ShieldMan** то логика для юнита с щитом не определена вообще
+
+
 
 
 ----
