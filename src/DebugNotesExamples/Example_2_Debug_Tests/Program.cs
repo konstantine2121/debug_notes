@@ -8,7 +8,7 @@ namespace Example_2_Debug_Tests
         {
             Tests tests = new Tests();
 
-            tests.RunMultiple(1);
+            tests.RunMultiple(100);
 
             //tests.TestCreateSquadMultiple();
         }
