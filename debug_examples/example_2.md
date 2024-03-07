@@ -1111,6 +1111,63 @@ if (currentUnit is Damager)
 }
 ```
 
+Перезапустим программу
+
+![](attachments/Pasted%20image%2020240307211058.png)
+
+Видим, что программа начала работать более стабильно - то явление зацикливание все еще имеет место быть.
+
+Памятуя о том что были случаи большого количества брони нужно еще раз проверить нанесение урона при большом количестве брони
+
+Поставим точку останова в блоке 
+```cs
+if (currentUnit is Damager)
+{
+    currentUnit.TakeAction(enemyUnit);
+}
+```
+![](attachments/Pasted%20image%2020240307211401.png)
+
+Запускаем отладку
+
+![](attachments/Pasted%20image%2020240307211521.png)
+
+И попадаем в точку останова на первой же итерации - но нам это не нужно.
+
+Исходя из отладки мы знаем что беды начинаются именно на больших значениях брони
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+|◢|currentUnit|currentHealth = 100, currentArmor = 5|Example_2_Debug.Unit {Example_2_Debug.Warior}|
+||currentHealth|100|int|
+||currentArmor|5|int|
+||IsDead|false|bool|
+||currentDamage|25|int|
+||maxArmor|5|int|
+||maxHealth|100|int|
+|◢|enemyUnit|currentHealth = 100, currentArmor = 1|Example_2_Debug.Unit {Example_2_Debug.ArmorBuffer}|
+||currentHealth|100|int|
+||currentArmor|1|int|
+||IsDead|false|bool|
+||armorBuffPoints|5|int|
+||currentMana|100|int|
+||currentManaRegen|25|int|
+||maxArmor|1|int|
+||maxHealth|100|int|
+||maxMana|100|int|
+
+1) currentArmor == 5
+2) currentArmor == 1
+
+Это очень маленькие значения
+
+Произошло попадание в точку останова в тот момент когда нужные нам условия еще не соблюдены
+
+# Как вызвать прерывание отладкой при определенных условиях
+
+Для этого можно модифицировать условия срабатывания
+
+
 
 ----
 
