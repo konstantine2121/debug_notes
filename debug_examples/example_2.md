@@ -663,6 +663,10 @@ _countOfArmorBuffer = unitsCount - createdUnits.Sum();
 
 На выходе мы получили список из 10 бойцов как и задумали.
 
+## Убеждаемся что метод Create работает стабильно на большом разбросе входных данных.
+
+
+
 ## Итоги по методу Create
 
 1) Мы нашли типовую ошибку вида `int / int = int` при выполнение которой программа отбрасывает значение дробной части и дальнейшие результаты становятся недействительными.
@@ -677,6 +681,9 @@ _countOfArmorBuffer = unitsCount - createdUnits.Sum();
 ![](attachments/Pasted%20image%2020240307185156.png)
 
 Что то пошло не так(
+
+## Как читать логи исключений
+
 Копия логов
 ```
 Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
@@ -693,7 +700,7 @@ D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug_Tests\bin\Debug\n
 
 Логи читаем сверху вниз
 
-Конкретная ошибка
+### Конкретная ошибка
 ```
 Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
    at System.Collections.Generic.List`1.get_Item(Int32 index)
@@ -710,17 +717,27 @@ at Example_2_Debug.Squad.GetRamdomUnit()
 D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 99
 ```
 
-Далее, если идти вниз по цепочки то мы видим, что обращение
+----
+### Далее вниз
+
+Далее, если идти вниз по цепочки то мы видим, что обращение к **GetRamdomUnit**
+ было в методе **AttackEnemySquad**
 
 ```
    at Example_2_Debug.Squad.AttackEnemySquad(Squad enemySquad) in D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 72
 ```
 
+ и так далее.
 
+----
 
+## Лайфхак по быстрому перемещению к месту ошибки
 
+Если ошибка стабильно воспроизводится - то мы можем быстро попасть в место, где ошибка происходит
 
-Нажимаем F5 чтобы продолжить исполнение программы в обычном режиме и внезап
+Нажимаем F5 чтобы начать исполнение программы в режиме отладки и IDE нас сразу перенесет куда нужно
+
+![](attachments/Pasted%20image%2020240307190150.png)
 
 
 231--
