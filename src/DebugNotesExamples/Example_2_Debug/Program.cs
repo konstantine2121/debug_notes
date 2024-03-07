@@ -282,7 +282,10 @@ namespace Example_2_Debug
 
             _countOfWarior = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfWarior);
             _countOfShieldMan = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfShieldMan);
-            _countOfArmorBuffer = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfArmorBuffer);
+
+            int[] createdUnits = { _countOfWarior, _countOfShieldMan };
+
+            _countOfArmorBuffer = unitsCount - createdUnits.Sum();
 
             AddUnits(units, warior, _countOfWarior);
             AddUnits(units, shieldMan, _countOfShieldMan);

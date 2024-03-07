@@ -353,6 +353,9 @@ namespace Example_2_Debug
 ![](attachments/Pasted%20image%2020240307163616.png)
 
 ![](attachments/Pasted%20image%2020240307163638.png)
+## Как выбрать какой из проектов запускать?
+
+В решении в котором есть множество проек
 
 Теперь мы можем ссылаться на первый проект используя  соответствующее пространство имен
 
@@ -595,9 +598,45 @@ _countOfArmorBuffer = (int)Math.Round( unitsCount / (float)_maxPercent * _percen
 
 Перепроверим себя - в окне контрольных значений нажимаем дважды на строчку "Добавить элемент в контрольное значение" и начинаем печатать код
 ![](attachments/Pasted%20image%2020240307175441.png)
+и начинаем печатать код
+
+```cs
+_countOfWarior + _countOfShieldMan + _countOfArmorBuffer
+```
+
+![](attachments/Pasted%20image%2020240307175730.png)
+||Имя|Значение|Тип|
+|---|---|---|---|
+||_countOfWarior + _countOfShieldMan + _countOfArmorBuffer|11|int|
+
+Сумма = 11
 
 А сколько передали в метод? 10!
 
+```
+11 != 10
+```
+
+Похоже придется немного изменить логику 
+
+Например сделать так, чтобы количество юнитов последнего типа считалось по другому например как
+
+```
+[кол-во юнитов вида х] = [нужно создать юнитов всего] - [сумма уже созданных видов юнитов]
+```
+
+итоговый вид
+
+```cs
+_countOfWarior = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfWarior);
+_countOfShieldMan = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfShieldMan);
+
+int[] createdUnits = { _countOfWarior, _countOfShieldMan };
+
+_countOfArmorBuffer = unitsCount - createdUnits.Sum();
+```
+
+Пересобираем проект и запускаем отладку
 
 231--
 
