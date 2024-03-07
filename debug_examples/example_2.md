@@ -604,9 +604,12 @@ _countOfArmorBuffer = (int)Math.Round( unitsCount / (float)_maxPercent * _percen
 
 Стоп! 11?
 
-Перепроверим себя - в окне контрольных значений нажимаем дважды на строчку "Добавить элемент в контрольное значение" и начинаем печатать код
+Перепроверим себя - в окне контрольных значений нажимаем дважды на строчку 
+"Добавить элемент в контрольное значение" 
+
 
 ![](attachments/Pasted%20image%2020240307175441.png)
+
 и начинаем печатать код
 
 ```cs
@@ -667,7 +670,55 @@ _countOfArmorBuffer = unitsCount - createdUnits.Sum();
 
 ----
 
-Можно продолжать общую отладку программы
+Можно продолжать работу с программой - в надежде что все работает.
+
+Пересобираем и запускам без отладки
+
+![](attachments/Pasted%20image%2020240307185156.png)
+
+Что то пошло не так(
+Копия логов
+```
+Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Example_2_Debug.Squad.GetRamdomUnit() in D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 99
+   at Example_2_Debug.Squad.AttackEnemySquad(Squad enemySquad) in D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 72
+   at Example_2_Debug.WarField.BeginBattle() in D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 36
+   at Example_2_Debug_Tests.Tests.RunSingle() in D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug_Tests\Program.cs:line 23
+   at Example_2_Debug_Tests.Tests.RunMultiple(Int32 amount) in D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug_Tests\Program.cs:line 30
+   at Example_2_Debug_Tests.Program.Main(String[] args) in D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug_Tests\Program.cs:line 11
+
+D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug_Tests\bin\Debug\net6.0\Example_2_Debug_Tests.exe (процесс 23472) завершил работу с кодом -532462766.
+```
+
+Логи читаем сверху вниз
+
+Конкретная ошибка
+```
+Unhandled exception. System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at Example_2_Debug.Squad.GetRamdomUnit() in D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 99
+```
+
+По простому - у нас произошел вылет за границы коллекции при попытке доступа к элементу коллекции в методе
+```
+at Example_2_Debug.Squad.GetRamdomUnit()
+```
+
+Тут конкретно указана строка в которой эта ошибка произошла
+```
+D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 99
+```
+
+Далее, если идти вниз по цепочки то мы видим, что обращение
+
+```
+   at Example_2_Debug.Squad.AttackEnemySquad(Squad enemySquad) in D:\Obsidian\debug_notes\src\DebugNotesExamples\Example_2_Debug\Program.cs:line 72
+```
+
+
+
+
 
 Нажимаем F5 чтобы продолжить исполнение программы в обычном режиме и внезап
 
