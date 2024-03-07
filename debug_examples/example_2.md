@@ -1018,6 +1018,23 @@ public void BeginBattle()
 
 ![](attachments/Pasted%20image%2020240307203808.png)
 
+
+![](attachments/Pasted%20image%2020240307204426.png)
+
+Значения очень медленно изменяются
+
+![](attachments/Pasted%20image%2020240307204512.png)
+
+Один боец помер
+
+Еще немного погоняем отладку
+
+![](attachments/Pasted%20image%2020240307204934.png)
+
+Значения здоровья бойцов перестали изменяться вообще
+
+
+
 ----
 
 | Навигация                 |                                             |     |
