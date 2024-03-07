@@ -905,6 +905,40 @@ private bool TryGetRamdomUnit(out Unit unit)
 }
 ```
 
+Соответственно в местах вызова метода код также будет изменен
+
+```cs
+ public void AttackEnemySquad(Squad enemySquad)
+ {
+     Unit currentUnit = null;
+     Unit enemyUnit = null;
+
+     if (!TryGetRamdomUnit(out currentUnit) ||
+         !enemySquad.TryGetRamdomUnit(out enemyUnit))
+     {
+         return;
+     }
+
+     if (currentUnit is Warior)
+     {
+         currentUnit.TakeAction(enemyUnit);
+     }
+
+     if (currentUnit is Suporter)
+     {
+         if (TryGetRamdomUnit(out Unit ally))
+         {
+             currentUnit.TakeAction(ally);
+         }    
+     }
+ }
+```
+
+Пробуем запускать программу множество раз
+
+![](attachments/Pasted%20image%2020240307200932.png)
+
+
 
 
 ----

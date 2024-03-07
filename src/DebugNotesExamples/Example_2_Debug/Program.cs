@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Example_2_Debug
+﻿namespace Example_2_Debug
 {
     internal class Program
     {
@@ -69,8 +66,14 @@ namespace Example_2_Debug
 
         public void AttackEnemySquad(Squad enemySquad)
         {
-            Unit currentUnit = TryGetRamdomUnit();
-            Unit enemyUnit = enemySquad.TryGetRamdomUnit();
+            Unit currentUnit = null;
+            Unit enemyUnit = null;
+
+            if (!TryGetRamdomUnit(out currentUnit) ||
+                !enemySquad.TryGetRamdomUnit(out enemyUnit))
+            {
+                return;
+            }
 
             if (currentUnit is Warior)
             {
@@ -79,7 +82,10 @@ namespace Example_2_Debug
 
             if (currentUnit is Suporter)
             {
-                currentUnit.TakeAction(TryGetRamdomUnit());
+                if (TryGetRamdomUnit(out Unit ally))
+                {
+                    currentUnit.TakeAction(ally);
+                }    
             }
         }
 
@@ -98,10 +104,10 @@ namespace Example_2_Debug
         {
             if (_units.Count == 0)
             {
-                unit = null; 
+                unit = null;
                 return false;
             }
-            
+
             unit = _units[UserUtils.GetRandomValue(_units.Count)];
             return true;
         }
@@ -287,8 +293,8 @@ namespace Example_2_Debug
             ShieldMan shieldMan = new ShieldMan();
             Warior warior = new Warior();
 
-            _countOfWarior = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfWarior);
-            _countOfShieldMan = (int)Math.Round( unitsCount / (float)_maxPercent * _percentOfShieldMan);
+            _countOfWarior = (int)Math.Round(unitsCount / (float)_maxPercent * _percentOfWarior);
+            _countOfShieldMan = (int)Math.Round(unitsCount / (float)_maxPercent * _percentOfShieldMan);
 
             int[] createdUnits = { _countOfWarior, _countOfShieldMan };
 
