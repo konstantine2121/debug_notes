@@ -15,7 +15,7 @@ namespace Example_2_Debug
         }
     }
 
-    class WarField
+    public class WarField
     {
         private Squad _firstArmy;
         private Squad _secondArmy;
