@@ -1212,6 +1212,66 @@ enemyUnit.a
 public abstract class Unit : IUnit
 ```
 
+Возвращаемся к нашей точке останова и прописываем ей условия
+
+```cs
+enemyUnit.CurrentArmor > 50
+```
+
+![](attachments/Pasted%20image%2020240307213152.png)
+
+
+Сохраняемся и перезапускаем программу в режиме отладки
+
+![](attachments/Pasted%20image%2020240307213326.png)
+
+Как мы видим программа выполнится много раз прежде чем произойдет попадание в точку останова
+
+![](attachments/Pasted%20image%2020240307213454.png)
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+|▶|currentUnit|CurrentArmor = 20, CurrentHealth = 20|Example_2_Debug.Unit {Example_2_Debug.Warior}|
+|▶|enemyUnit|CurrentArmor = 56, CurrentHealth = 21|Example_2_Debug.Unit {Example_2_Debug.ArmorBuffer}|
+
+Нажимаем F11 и проваливаемся в метод TakeAction
+
+![](attachments/Pasted%20image%2020240307213530.png)
+
+Еще раз и провалимся в метод
+
+![](attachments/Pasted%20image%2020240307213604.png)
+
+![](attachments/Pasted%20image%2020240307213628.png)
+
+Еще раз и проваливаемся в TakeDamage
+
+```cs
+        public void TakeDamage(int damage)
+        {
+            if (damage > currentArmor)
+            {
+                currentHealth -= damage - currentArmor;
+            }
+
+            if (currentHealth <= 0)
+            {
+                IsDead = true;
+            }
+        }
+```
+
+Как мы видим
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+||damage|36|int|
+||currentArmor|56|int|
+||damage > currentArmor|false|bool|
+
+урон меньше брони - поэтому атака не проходит.
+
+
 
 ----
 
