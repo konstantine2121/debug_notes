@@ -1356,6 +1356,81 @@ public abstract class Unit : IUnit
 
 То видно что есть метод ClearBuffs который должен очищать бонусы брони у которого 0 ссылок - то есть его ни разу не вызывают. Вот тут очевидно и есть подвох.
 
+Неочевидная вещь - но допустим мы должны терять баффы брони у текущего юнита перед совершением им действия для этого у класса Unit перепишем метод
+
+```cs
+public abstract void TakeAction(Unit unit);
+```
+
+```cs
+public virtual void TakeAction(Unit unit)
+{
+    ClearBuffs();
+}
+```
+
+----
+
+А в методах которые переопределяли логику абстрактного TakeAction также подправим код, добавив в него вызов стандартной реализации
+
+```cs
+base.TakeAction(ally);
+```
+
+Изменим в Damager
+
+```cs
+public abstract class Damager : Unit
+
+public override void TakeAction(Unit unit)
+{
+    Attack(unit);
+}
+```
+на 
+```cs
+public override void TakeAction(Unit unit)
+{
+    base.TakeAction(unit);
+    Attack(unit);
+}
+```
+И в ArmorBuffer
+```cs
+public class ArmorBuffer : Suporter
+
+public override void TakeAction(Unit ally)
+{
+    UseBuffSkill(ally);
+}
+```
+на 
+```cs
+public override void TakeAction(Unit ally)
+{
+    base.TakeAction(ally);
+    UseBuffSkill(ally);
+}
+```
+
+## Перезапускаем приложение
+
+```cs
+static void Main(string[] args)
+{
+    Tests tests = new Tests();
+
+    tests.RunMultiple(10000);
+
+    //tests.TestCreateSquadMultiple();
+}
+```
+
+
+![](attachments/Pasted%20image%2020240307220913.png)
+
+Как видим все успешно отработало.
+
 .
 
 ----
