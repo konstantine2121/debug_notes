@@ -1,4 +1,4 @@
-﻿namespace Example_2_Debug
+﻿namespace Example_3_Original
 {
     internal class Program
     {
@@ -12,7 +12,7 @@
         }
     }
 
-    public class WarField
+    class WarField
     {
         private Squad _firstArmy;
         private Squad _secondArmy;
@@ -49,7 +49,7 @@
         }
     }
 
-    public class Squad
+    class Squad
     {
         private List<Unit> _units;
 
@@ -66,26 +66,17 @@
 
         public void AttackEnemySquad(Squad enemySquad)
         {
-            Unit currentUnit = null;
-            Unit enemyUnit = null;
+            Unit currentUnit = GetRamdomUnit();
+            Unit enemyUnit = enemySquad.GetRamdomUnit();
 
-            if (!TryGetRamdomUnit(out currentUnit) ||
-                !enemySquad.TryGetRamdomUnit(out enemyUnit))
-            {
-                return;
-            }
-
-            if (currentUnit is Damager)
+            if (currentUnit is Warior)
             {
                 currentUnit.TakeAction(enemyUnit);
             }
 
             if (currentUnit is Suporter)
             {
-                if (TryGetRamdomUnit(out Unit ally))
-                {
-                    currentUnit.TakeAction(ally);
-                }    
+                currentUnit.TakeAction(GetRamdomUnit());
             }
         }
 
@@ -100,33 +91,15 @@
             }
         }
 
-        private bool TryGetRamdomUnit(out Unit unit)
+        private Unit GetRamdomUnit()
         {
-            if (_units.Count == 0)
-            {
-                unit = null;
-                return false;
-            }
-
-            unit = _units[UserUtils.GetRandomValue(_units.Count)];
-            return true;
+            return _units[UserUtils.GetRandomValue(_units.Count)];
         }
 
         public string Name { get; private set; }
     }
 
-    public interface IUnit 
-    {
-        int MaxHealth { get; }
-
-        int CurrentHealth { get; }
-
-        int CurrentArmor { get; }
-
-        int MaxArmor { get; }
-    }
-
-    public abstract class Unit : IUnit
+    abstract class Unit
     {
         protected int maxHealth;
         protected int currentHealth;
@@ -139,14 +112,6 @@
         }
 
         public bool IsDead { get; private set; }
-
-        public int MaxHealth => maxHealth;
-
-        public int CurrentHealth => currentHealth;
-
-        public int CurrentArmor => currentArmor;
-
-        public int MaxArmor => maxArmor;
 
         public void TakeDamage(int damage)
         {
@@ -161,11 +126,7 @@
             }
         }
 
-        public virtual void TakeAction(Unit unit)
-        {
-            ClearBuffs();
-        }
-
+        public abstract void TakeAction(Unit unit);
         public abstract Unit Clone();
 
         public void GetBuff(int armor)
@@ -179,7 +140,7 @@
         }
     }
 
-    public abstract class Damager : Unit
+    abstract class Damager : Unit
     {
         protected int currentDamage;
 
@@ -192,14 +153,13 @@
 
         public override void TakeAction(Unit unit)
         {
-            base.TakeAction(unit);
             Attack(unit);
         }
 
         protected abstract int GetDamage();
     }
 
-    public abstract class Suporter : Unit
+    abstract class Suporter : Unit
     {
         protected int maxMana;
         protected int currentMana;
@@ -218,7 +178,7 @@
         public abstract void UseBuffSkill(Unit unit);
     }
 
-    public class ArmorBuffer : Suporter
+    class ArmorBuffer : Suporter
     {
         int armorBuffPoints = 5;
 
@@ -240,7 +200,6 @@
 
         public override void TakeAction(Unit ally)
         {
-            base.TakeAction(ally);
             UseBuffSkill(ally);
         }
 
@@ -250,7 +209,7 @@
         }
     }
 
-    public class ShieldMan : Damager
+    class ShieldMan : Damager
     {
         public ShieldMan()
         {
@@ -274,7 +233,7 @@
         }
     }
 
-    public class Warior : Damager
+    class Warior : Damager
     {
         public Warior()
         {
@@ -298,13 +257,13 @@
         }
     }
 
-    public class ArmyFactory
+    class ArmyFactory
     {
         private int _maxPercent = 100;
 
-        private float _percentOfWarior = 30;
-        private float _percentOfShieldMan = 35;
-        private float _percentOfArmorBuffer = 35;
+        private int _percentOfWarior = 30;
+        private int _percentOfShieldMan = 35;
+        private int _percentOfArmorBuffer = 35;
 
         private int _countOfWarior;
         private int _countOfShieldMan;
@@ -318,12 +277,9 @@
             ShieldMan shieldMan = new ShieldMan();
             Warior warior = new Warior();
 
-            _countOfWarior = (int)Math.Round(unitsCount / (float)_maxPercent * _percentOfWarior);
-            _countOfShieldMan = (int)Math.Round(unitsCount / (float)_maxPercent * _percentOfShieldMan);
-
-            int[] createdUnits = { _countOfWarior, _countOfShieldMan };
-
-            _countOfArmorBuffer = unitsCount - createdUnits.Sum();
+            _countOfWarior = unitsCount / _maxPercent * _percentOfWarior;
+            _countOfShieldMan = unitsCount / _maxPercent * _percentOfShieldMan;
+            _countOfArmorBuffer = unitsCount / _maxPercent * _percentOfArmorBuffer;
 
             AddUnits(units, warior, _countOfWarior);
             AddUnits(units, shieldMan, _countOfShieldMan);
@@ -341,7 +297,7 @@
         }
     }
 
-    public class UserUtils
+    class UserUtils
     {
         private static Random s_random = new Random();
 

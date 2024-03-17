@@ -1,6 +1,6 @@
-﻿using Example_2_Debug;
+﻿using Example_3_Debug;
 
-namespace Example_2_Debug_Tests
+namespace Example_3_Debug_Tests
 {
     internal class Program
     {

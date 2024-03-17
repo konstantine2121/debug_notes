@@ -7,13 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DebugNotesExamples", "Debug
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example_1", "Example_1\Example_1.csproj", "{D6D79AE2-6A7C-4DF3-876C-77C08380A8C6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example_2", "Example_2", "{6CC692FE-F160-4508-BDF4-C76D2A67CA9B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example_3", "Example_3", "{6CC692FE-F160-4508-BDF4-C76D2A67CA9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_2_Original", "Example_2_Original\Example_2_Original.csproj", "{D12BEDD0-FE15-4B15-B34A-0CB243A4EEC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example_3_Original", "Example_3_Original\Example_3_Original.csproj", "{D12BEDD0-FE15-4B15-B34A-0CB243A4EEC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_2_Debug", "Example_2_Debug\Example_2_Debug.csproj", "{1F707867-C160-4762-B3C0-62524670988F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example_3_Debug", "Example_3_Debug\Example_3_Debug.csproj", "{1F707867-C160-4762-B3C0-62524670988F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_2_Debug_Tests", "Example_2_Debug_Tests\Example_2_Debug_Tests.csproj", "{96F4EF40-A13B-4632-99C7-2D0C7D3B0B47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example_3_Debug_Tests", "Example_3_Debug_Tests\Example_3_Debug_Tests.csproj", "{96F4EF40-A13B-4632-99C7-2D0C7D3B0B47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

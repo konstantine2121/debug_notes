@@ -135,4 +135,4 @@ for (int i = 0; i < times; i++)
 
 | Навигация |                                        |                           |
 | --------- | -------------------------------------- | ------------------------- |
-|           | [К списку примеров](debug_examples_list.md) | [example_2](example_2.md) |
+|           | [К списку примеров](debug_examples_list.md) | [example_3](example_3.md) |
