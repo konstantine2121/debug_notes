@@ -2,15 +2,15 @@
 
 Оригинальная версия исходников лежит тут
 
-https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_2_Original/Program.cs
+https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_3_Original/Program.cs
 
 Модифицированная лежит тут
 
-https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_2_Debug/Program.cs
+https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_3_Debug/Program.cs
 
 Код тестов лежит тут
 
-https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_2_Debug_Tests/Program.cs
+https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_3_Debug_Tests/Program.cs
 
 ----
 
