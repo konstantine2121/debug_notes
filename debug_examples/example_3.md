@@ -1446,4 +1446,4 @@ static void Main(string[] args)
 
 | Навигация                 |                                             |     |
 | ------------------------- | ------------------------------------------- | --- |
-| [example_1](example_1.md) | [К списку примеров](debug_examples_list.md) |     |
+| [example_2](example_2.md) | [К списку примеров](debug_examples_list.md) |     |
