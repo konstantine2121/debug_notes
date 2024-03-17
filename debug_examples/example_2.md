@@ -36,7 +36,9 @@
 
 https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_2_Original/Program.cs
 
+Отладка(Рефакторинг)
 
+https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_2_Debug/Program.cs
 
 Листинг оригинала
 
@@ -87,6 +89,13 @@ namespace Example_2_Original
 }
 
 ```
+
+
+# Начало отладки
+
+Ставим точку останова в начале программы и все значения интересующих нас переменных закрепляем в окне IDE
+
+
 
 
 ----
