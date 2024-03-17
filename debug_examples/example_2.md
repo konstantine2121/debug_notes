@@ -164,6 +164,25 @@ IDE должна отобразить окно Ссылки
 Кроме того, переменную можем объявить непосредственно в месте использования
 
 
+```cs
+int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, ij = 1;
+
+while (secondMultiplier < 10)
+{
+    while (firstMultiplier < ogri)
+    {
+        int multiplicationResult = firstMultiplier * secondMultiplier;
+        Console.Write("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+        ++firstMultiplier;
+
+        ++ij;
+    }
+```
+
+Измененый фрагмент кода выглядит вот так.
+
+
+
 ----
 
 | Навигация                 |                                             |                           |
