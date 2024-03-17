@@ -2,11 +2,28 @@
 
 namespace Example_2_Debug
 {
+    class ConsoleOutputDisplay
+    {
+        private readonly StringBuilder _builder = new StringBuilder();
+
+        public string Content => _builder.ToString();
+
+        public void Append(string message)
+        {
+            _builder.Append(message);
+        }
+
+        public void AppendLine() 
+        {
+            _builder.AppendLine();
+        }
+    }
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            StringBuilder sb = new StringBuilder();
+            ConsoleOutputDisplay consoleOutput = new ConsoleOutputDisplay();
 
             int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, outputCounter = 1;
 
@@ -15,8 +32,9 @@ namespace Example_2_Debug
                 while (firstMultiplier < ogri)
                 {
                     int multiplicationResult = firstMultiplier * secondMultiplier;
-                    Console.Write("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
-                    sb.AppendFormat( "{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+                    var message = string.Format("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+                    Console.Write(message);
+                    consoleOutput.Append(message);
                     ++firstMultiplier;
 
                     ++outputCounter;
@@ -26,7 +44,7 @@ namespace Example_2_Debug
                 {
                     ogri = 6;
                     Console.WriteLine();
-                    sb.AppendLine();
+                    consoleOutput.AppendLine();
                     secondMultiplier++;
                     firstMultiplier = 2;
                 }
@@ -34,13 +52,13 @@ namespace Example_2_Debug
                 {
                     ogri = 10;
                     Console.WriteLine();
-                    sb.AppendLine();
+                    consoleOutput.AppendLine();
                     secondMultiplier++;
                     firstMultiplier = 6;
                     if (outputCounter == 33)
                     {
                         Console.WriteLine();
-                        sb.AppendLine();
+                        consoleOutput.AppendLine();
                         secondMultiplier = 2;
                     }
                 }
