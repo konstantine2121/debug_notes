@@ -194,6 +194,8 @@ while (secondMultiplier < 10)
 
 ![](attachments/Pasted%20image%2020240317235018.png)
 
+
+
 ----
 
 | Навигация                 |                                             |                           |
