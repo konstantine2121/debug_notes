@@ -3,5 +3,6 @@
   "showUnsupportedFiles": true,
   "attachmentFolderPath": "./attachments",
   "newLinkFormat": "relative",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "readableLineLength": false
 }
