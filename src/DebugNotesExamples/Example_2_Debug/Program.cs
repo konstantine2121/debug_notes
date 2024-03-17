@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, ij = 1;
+            int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, outputCounter = 1;
 
             while (secondMultiplier < 10)
             {
@@ -14,10 +14,10 @@
                     Console.Write("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
                     ++firstMultiplier;
 
-                    ++ij;
+                    ++outputCounter;
                 }
 
-                if (ij < 33)
+                if (outputCounter < 33)
                 {
                     ogri = 6;
                     Console.WriteLine();
@@ -30,7 +30,7 @@
                     Console.WriteLine();
                     secondMultiplier++;
                     firstMultiplier = 6;
-                    if (ij == 33)
+                    if (outputCounter == 33)
                     {
                         Console.WriteLine();
                         secondMultiplier = 2;
