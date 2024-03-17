@@ -30,23 +30,27 @@
 
 # Исходные коды
 
-```cs
-using System;
+## Ссылки
 
+Оригинал
+
+https://github.com/konstantine2121/debug_notes/blob/main/src/DebugNotesExamples/Example_2_Original/Program.cs
+
+
+
+Листинг оригинала
+
+```cs
 namespace Example_2_Original
 {
-    /// <summary>
-    /// Таблица умножения
-    /// </summary>
-    class MultiplicationTable : IRunnable
+    internal class Program
     {
-        public void Run()
+        static void Main(string[] args)
         {
             int i = 2, j = 1, z = 0, ogri = 0, ij = 1;
 
             while (j < 10)
             {
-
                 while (i < ogri)
                 {
                     z = i * j;
@@ -75,7 +79,6 @@ namespace Example_2_Original
                         j = 2;
                     }
                 }
-
             }
 
             Console.ReadKey();
