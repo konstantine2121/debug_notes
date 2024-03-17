@@ -4,15 +4,15 @@
     {
         static void Main(string[] args)
         {
-            int i = 2, j = 1, z = 0, ogri = 0, ij = 1;
+            int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, ij = 1;
 
-            while (j < 10)
+            while (secondMultiplier < 10)
             {
-                while (i < ogri)
+                while (firstMultiplier < ogri)
                 {
-                    z = i * j;
-                    Console.Write("{0} x {1}= {2}\t", i, j, z);
-                    ++i;
+                    int multiplicationResult = firstMultiplier * secondMultiplier;
+                    Console.Write("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+                    ++firstMultiplier;
 
                     ++ij;
                 }
@@ -21,19 +21,19 @@
                 {
                     ogri = 6;
                     Console.WriteLine();
-                    j++;
-                    i = 2;
+                    secondMultiplier++;
+                    firstMultiplier = 2;
                 }
                 else
                 {
                     ogri = 10;
                     Console.WriteLine();
-                    j++;
-                    i = 6;
+                    secondMultiplier++;
+                    firstMultiplier = 6;
                     if (ij == 33)
                     {
                         Console.WriteLine();
-                        j = 2;
+                        secondMultiplier = 2;
                     }
                 }
             }
