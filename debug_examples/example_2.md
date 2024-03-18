@@ -666,11 +666,73 @@ ogri  является ограничением для переменной firs
 
 Следующий вопрос - зачем нужен outputCounter?
 
-Если присмотреться - то видно что до 90 строки вызывался блок кода
+![](attachments/Pasted%20image%2020240319024607.png)
 
 
+Если присмотреться - то видно что до 90 строки вызывался блок кода (строки 69, 80 и тд)
 
+```cs
+if (outputCounter < 33)
+{
+    ogri = 6;
+    Console.WriteLine();
+    secondMultiplier++;
+    firstMultiplier = 2;
+}
+```
 
+А после вызывались строки
+
+```cs
+else
+{
+    ogri = 10;
+    Console.WriteLine();
+    secondMultiplier++;
+    firstMultiplier = 6;
+    if (outputCounter == 33)
+    {
+        Console.WriteLine();
+        secondMultiplier = 2;
+    }
+}
+```
+
+В логе метка
+`else (outputCounter < 33) | false` (строки 91, 102, 113 и тд)
+
+![](attachments/Pasted%20image%2020240319025049.png)
+
+Причем 
+```cs
+if (outputCounter == 33)
+    {
+        Console.WriteLine();
+        secondMultiplier = 2;
+    }
+```
+
+Вызывается ровно один раз
+
+То есть в мы видим четкое разделение логики - выводим строки с первым множителем от 2 до 5
+
+и следом строки с первым множителем от 6 до 9
+
+Сравниваем с выводом
+
+![](attachments/Pasted%20image%2020240319025404.png)
+
+Выводы
+
+```cs
+ if (outputCounter < 33)
+ {
+     ogri = 6;
+     Console.WriteLine();
+     secondMultiplier++;
+     firstMultiplier = 2;
+ }
+```
 
 
 ----
