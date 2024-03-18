@@ -540,9 +540,13 @@ firstMultiplier = 9, secondMultiplier = 9, ogri = 10, outputCounter = 64
 
 ![](attachments/Pasted%20image%2020240319013318.png)
 
-Точка останова на строке с пустым оператором `;` будет выводить значения переменных после инициализации.
+Точка останова на строке с пустым оператором `;` будет выводить значения переменных после инициализации (Строка 11).
 
-Точки останова которые находятся на строке с открывающим блоком кода (`{`) - будут нести информацию об условии которое проверялось выше.
+```
+init | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri = {ogri}, outputCounter = {outputCounter}
+```
+
+Точки останова которые находятся на строке с открывающим блоком кода (`{`) - будут нести информацию об условии которое проверялось выше (строки 13, 15, 25, 32 ).
 
 ```
 while (secondMultiplier < 10) | {secondMultiplier < 10}
@@ -551,13 +555,217 @@ if (outputCounter < 33) | outputCounter < 33
 else (outputCounter < 33) | outputCounter < 33
 ```
 
-Точки останова которые находятся на строке с закрывающим блоком кода (`}`) - будут выводить текущие значения переменных.
+Точки останова которые находятся на строке с закрывающим блоком кода (`}`) - будут выводить текущие значения переменных (строки 22, 43).
 
 ```
-init | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri = {ogri}, outputCounter = {outputCounter}
 inner while | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, multiplicationResult = {multiplicationResult}, outputCounter = {outputCounter}
 outer while | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri = {ogri}, outputCounter = {outputCounter}
 ```
+
+
+## Листинг логов из окна вывод
+
+```
+init | firstMultiplier = 2, secondMultiplier = 1, ogri = 0, outputCounter = 1
+while (secondMultiplier < 10) | true
+if (outputCounter < 33) | outputCounter < 33
+"Example_2_Debug.exe" (CoreCLR: clrhost). Загружено "C:\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.25\System.Text.Encoding.Extensions.dll". Загрузка символов пропущена. Модуль оптимизирован, включен параметр отладчика "Только мой код".
+outer while | firstMultiplier = 2, secondMultiplier = 2, ogri = 6, outputCounter = 1
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+"Example_2_Debug.exe" (CoreCLR: clrhost). Загружено "C:\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.25\System.Collections.Concurrent.dll". Загрузка символов пропущена. Модуль оптимизирован, включен параметр отладчика "Только мой код".
+inner while | firstMultiplier = 3, secondMultiplier = 2, multiplicationResult = 4, outputCounter = 2
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 4, secondMultiplier = 2, multiplicationResult = 6, outputCounter = 3
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 5, secondMultiplier = 2, multiplicationResult = 8, outputCounter = 4
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 6, secondMultiplier = 2, multiplicationResult = 10, outputCounter = 5
+if (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 2, secondMultiplier = 3, ogri = 6, outputCounter = 5
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 3, secondMultiplier = 3, multiplicationResult = 6, outputCounter = 6
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 4, secondMultiplier = 3, multiplicationResult = 9, outputCounter = 7
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 5, secondMultiplier = 3, multiplicationResult = 12, outputCounter = 8
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 6, secondMultiplier = 3, multiplicationResult = 15, outputCounter = 9
+if (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 2, secondMultiplier = 4, ogri = 6, outputCounter = 9
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 3, secondMultiplier = 4, multiplicationResult = 8, outputCounter = 10
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 4, secondMultiplier = 4, multiplicationResult = 12, outputCounter = 11
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 5, secondMultiplier = 4, multiplicationResult = 16, outputCounter = 12
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 6, secondMultiplier = 4, multiplicationResult = 20, outputCounter = 13
+if (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 2, secondMultiplier = 5, ogri = 6, outputCounter = 13
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 3, secondMultiplier = 5, multiplicationResult = 10, outputCounter = 14
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 4, secondMultiplier = 5, multiplicationResult = 15, outputCounter = 15
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 5, secondMultiplier = 5, multiplicationResult = 20, outputCounter = 16
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 6, secondMultiplier = 5, multiplicationResult = 25, outputCounter = 17
+if (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 2, secondMultiplier = 6, ogri = 6, outputCounter = 17
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 3, secondMultiplier = 6, multiplicationResult = 12, outputCounter = 18
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 4, secondMultiplier = 6, multiplicationResult = 18, outputCounter = 19
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 5, secondMultiplier = 6, multiplicationResult = 24, outputCounter = 20
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 6, secondMultiplier = 6, multiplicationResult = 30, outputCounter = 21
+if (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 2, secondMultiplier = 7, ogri = 6, outputCounter = 21
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 3, secondMultiplier = 7, multiplicationResult = 14, outputCounter = 22
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 4, secondMultiplier = 7, multiplicationResult = 21, outputCounter = 23
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 5, secondMultiplier = 7, multiplicationResult = 28, outputCounter = 24
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 6, secondMultiplier = 7, multiplicationResult = 35, outputCounter = 25
+if (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 2, secondMultiplier = 8, ogri = 6, outputCounter = 25
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 3, secondMultiplier = 8, multiplicationResult = 16, outputCounter = 26
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 4, secondMultiplier = 8, multiplicationResult = 24, outputCounter = 27
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 5, secondMultiplier = 8, multiplicationResult = 32, outputCounter = 28
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 6, secondMultiplier = 8, multiplicationResult = 40, outputCounter = 29
+if (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 2, secondMultiplier = 9, ogri = 6, outputCounter = 29
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 3, secondMultiplier = 9, multiplicationResult = 18, outputCounter = 30
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 4, secondMultiplier = 9, multiplicationResult = 27, outputCounter = 31
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 5, secondMultiplier = 9, multiplicationResult = 36, outputCounter = 32
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 6, secondMultiplier = 9, multiplicationResult = 45, outputCounter = 33
+else (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 6, secondMultiplier = 2, ogri = 10, outputCounter = 33
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 7, secondMultiplier = 2, multiplicationResult = 12, outputCounter = 34
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 8, secondMultiplier = 2, multiplicationResult = 14, outputCounter = 35
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 9, secondMultiplier = 2, multiplicationResult = 16, outputCounter = 36
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 10, secondMultiplier = 2, multiplicationResult = 18, outputCounter = 37
+else (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 6, secondMultiplier = 3, ogri = 10, outputCounter = 37
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 7, secondMultiplier = 3, multiplicationResult = 18, outputCounter = 38
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 8, secondMultiplier = 3, multiplicationResult = 21, outputCounter = 39
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 9, secondMultiplier = 3, multiplicationResult = 24, outputCounter = 40
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 10, secondMultiplier = 3, multiplicationResult = 27, outputCounter = 41
+else (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 6, secondMultiplier = 4, ogri = 10, outputCounter = 41
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 7, secondMultiplier = 4, multiplicationResult = 24, outputCounter = 42
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 8, secondMultiplier = 4, multiplicationResult = 28, outputCounter = 43
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 9, secondMultiplier = 4, multiplicationResult = 32, outputCounter = 44
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 10, secondMultiplier = 4, multiplicationResult = 36, outputCounter = 45
+else (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 6, secondMultiplier = 5, ogri = 10, outputCounter = 45
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 7, secondMultiplier = 5, multiplicationResult = 30, outputCounter = 46
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 8, secondMultiplier = 5, multiplicationResult = 35, outputCounter = 47
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 9, secondMultiplier = 5, multiplicationResult = 40, outputCounter = 48
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 10, secondMultiplier = 5, multiplicationResult = 45, outputCounter = 49
+else (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 6, secondMultiplier = 6, ogri = 10, outputCounter = 49
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 7, secondMultiplier = 6, multiplicationResult = 36, outputCounter = 50
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 8, secondMultiplier = 6, multiplicationResult = 42, outputCounter = 51
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 9, secondMultiplier = 6, multiplicationResult = 48, outputCounter = 52
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 10, secondMultiplier = 6, multiplicationResult = 54, outputCounter = 53
+else (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 6, secondMultiplier = 7, ogri = 10, outputCounter = 53
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 7, secondMultiplier = 7, multiplicationResult = 42, outputCounter = 54
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 8, secondMultiplier = 7, multiplicationResult = 49, outputCounter = 55
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 9, secondMultiplier = 7, multiplicationResult = 56, outputCounter = 56
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 10, secondMultiplier = 7, multiplicationResult = 63, outputCounter = 57
+else (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 6, secondMultiplier = 8, ogri = 10, outputCounter = 57
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 7, secondMultiplier = 8, multiplicationResult = 48, outputCounter = 58
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 8, secondMultiplier = 8, multiplicationResult = 56, outputCounter = 59
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 9, secondMultiplier = 8, multiplicationResult = 64, outputCounter = 60
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 10, secondMultiplier = 8, multiplicationResult = 72, outputCounter = 61
+else (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 6, secondMultiplier = 9, ogri = 10, outputCounter = 61
+while (secondMultiplier < 10) | true
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 7, secondMultiplier = 9, multiplicationResult = 54, outputCounter = 62
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 8, secondMultiplier = 9, multiplicationResult = 63, outputCounter = 63
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 9, secondMultiplier = 9, multiplicationResult = 72, outputCounter = 64
+while (firstMultiplier < ogri) | true
+inner while | firstMultiplier = 10, secondMultiplier = 9, multiplicationResult = 81, outputCounter = 65
+else (outputCounter < 33) | outputCounter < 33
+outer while | firstMultiplier = 6, secondMultiplier = 10, ogri = 10, outputCounter = 65
+
+```
+
+Лишние сообщения можно удалить
+
+```
+"Example_2_Debug.exe" (CoreCLR: clrhost). Загружено "C:\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.25\System.Text.Encoding.Extensions.dll". Загрузка символов пропущена. Модуль оптимизирован, включен параметр отладчика "Только мой код".
+
+"Example_2_Debug.exe" (CoreCLR: clrhost). Загружено "C:\Program Files\dotnet\shared\Microsoft.NETCore.App\6.0.25\System.Collections.Concurrent.dll". Загрузка символов пропущена. Модуль оптимизирован, включен параметр отладчика "Только мой код".
+```
+
+
+Для удобства их разбора можно их скопировать например в редактор Notepad++ - и раскрасить в нем цветами текст, чтобы было проще его читать
+
+
+![](attachments/Pasted%20image%2020240319015503.png)
+
+
 
 
 ----
