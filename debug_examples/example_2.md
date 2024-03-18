@@ -614,7 +614,37 @@ if (outputCounter < 33)
 
 Листаем вниз и видим, что на 92 строке `ogri = 10`
 
-Смотрим на 90 строку `outputCounter = 33` 
+Смотрим на 90 строку `outputCounter = 33` а `firstMultiplier = 6`
+
+```
+inner while | firstMultiplier = 6, secondMultiplier = 9, multiplicationResult = 45, outputCounter = 33
+```
+
+Подсветим также и `inner while | firstMultiplier = 6`
+
+![](attachments/Pasted%20image%2020240319022949.png)
+
+А если смотреть ниже 90 строчки - то она больше нигде и не встречается
+
+![](attachments/Pasted%20image%2020240319023047.png)
+
+Еще раз посмотрим за поведением переменной firstMultiplier до 90 строки
+
+Значения 2 3 4 5 6
+
+![](attachments/Pasted%20image%2020240319023238.png)
+
+Значения 2 3 4 5 6 и опять по новой
+
+![](attachments/Pasted%20image%2020240319023327.png)
+
+Эта картина повторяется вплоть до 90 строчки, при этом переменная ogri = 6
+
+![](attachments/Pasted%20image%2020240319023419.png)
+
+Посмотрим как дела обстоят дальше
+
+
 
 ----
 
