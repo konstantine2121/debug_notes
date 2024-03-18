@@ -15,7 +15,7 @@ namespace Example_2_Debug
                 {
                     int multiplicationResult = firstMultiplier * secondMultiplier;
 
-                    Console.Write("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+                    Console.Write("{0} x {1} = {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
                     
                     ++firstMultiplier;
                     ++outputCounter;
