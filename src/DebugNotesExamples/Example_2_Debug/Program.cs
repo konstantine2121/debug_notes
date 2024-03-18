@@ -1,30 +1,12 @@
 ﻿using System.Text;
 
 namespace Example_2_Debug
-{
-    class ConsoleOutputDisplay
-    {
-        private readonly StringBuilder _builder = new StringBuilder();
-
-        public string Content => _builder.ToString();
-
-        public void Append(string message)
-        {
-            _builder.Append(message);
-        }
-
-        public void AppendLine() 
-        {
-            _builder.AppendLine();
-        }
-    }
+{  
 
     internal class Program
     {
         static void Main(string[] args)
         {
-            ConsoleOutputDisplay consoleOutput = new ConsoleOutputDisplay();
-
             int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, outputCounter = 1;
 
             while (secondMultiplier < 10)
@@ -32,11 +14,10 @@ namespace Example_2_Debug
                 while (firstMultiplier < ogri)
                 {
                     int multiplicationResult = firstMultiplier * secondMultiplier;
-                    var message = string.Format("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
-                    Console.Write(message);
-                    consoleOutput.Append(message);
-                    ++firstMultiplier;
 
+                    Console.Write("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+                    
+                    ++firstMultiplier;
                     ++outputCounter;
                 }
 
@@ -44,7 +25,6 @@ namespace Example_2_Debug
                 {
                     ogri = 6;
                     Console.WriteLine();
-                    consoleOutput.AppendLine();
                     secondMultiplier++;
                     firstMultiplier = 2;
                 }
@@ -52,13 +32,11 @@ namespace Example_2_Debug
                 {
                     ogri = 10;
                     Console.WriteLine();
-                    consoleOutput.AppendLine();
                     secondMultiplier++;
                     firstMultiplier = 6;
                     if (outputCounter == 33)
                     {
                         Console.WriteLine();
-                        consoleOutput.AppendLine();
                         secondMultiplier = 2;
                     }
                 }

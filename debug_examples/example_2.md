@@ -202,7 +202,58 @@ while (secondMultiplier < 10)
 
 Переименовываем **ij** в **outputCounter**.
 
+## Продолжаем исследовать код
 
+В настоящий момент он имеет вот такой вид
+
+```cs
+static void Main(string[] args)
+{
+    int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, outputCounter = 1;
+
+    while (secondMultiplier < 10)
+    {
+        while (firstMultiplier < ogri)
+        {
+            int multiplicationResult = firstMultiplier * secondMultiplier;
+
+            Console.Write("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+            
+            ++firstMultiplier;
+            ++outputCounter;
+        }
+
+        if (outputCounter < 33)
+        {
+            ogri = 6;
+            Console.WriteLine();
+            secondMultiplier++;
+            firstMultiplier = 2;
+        }
+        else
+        {
+            ogri = 10;
+            Console.WriteLine();
+            secondMultiplier++;
+            firstMultiplier = 6;
+            if (outputCounter == 33)
+            {
+                Console.WriteLine();
+                secondMultiplier = 2;
+            }
+        }
+    }
+
+    Console.ReadKey();
+}
+```
+
+Для удобства наблюдения добавим все интересующие нас переменные в контрольные значения
+
+Для этого во время отладки нужно навести курсор на интересующую переменную нажать ПКМ и в контекстном меню выбрать "Добавить контрольное значение"
+
+![](attachments/Pasted%20image%2020240319000355.png)
+После этого значение этой переменной должно отобразиться в окне "Контрольные значения 1
 
 
 ----
