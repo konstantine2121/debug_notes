@@ -634,7 +634,17 @@ inner while | firstMultiplier = 6, secondMultiplier = 9, multiplicationResult = 
 
 ![](attachments/Pasted%20image%2020240319023238.png)
 
-Значения 2 3 4 5 6 и опять по новой
+Значения 2 3 4 5 6 и опять по новой, при этом каждый раз происходив вход в условный оператор, где значение сбрасывается в 2
+
+```cs
+if (outputCounter < 33)
+{
+    ogri = 6;
+    Console.WriteLine();
+    secondMultiplier++;
+    firstMultiplier = 2;
+}
+```
 
 ![](attachments/Pasted%20image%2020240319023327.png)
 
@@ -643,6 +653,23 @@ inner while | firstMultiplier = 6, secondMultiplier = 9, multiplicationResult = 
 ![](attachments/Pasted%20image%2020240319023419.png)
 
 Посмотрим как дела обстоят дальше
+
+Подсветим `inner while | firstMultiplier = 10` и `ogri = 10`
+
+![](attachments/Pasted%20image%2020240319024008.png)
+
+Собственно та же картина наблюдается только значения в диапазоне от 6 включительно до 10 исключительно
+
+**Вывод**
+
+ogri  является ограничением для переменной firstMultiplier - в последствии переименуем ее в firstMultiplierLimit
+
+Следующий вопрос - зачем нужен outputCounter?
+
+Если присмотреться - то видно что до 90 строки вызывался блок кода
+
+
+
 
 
 
