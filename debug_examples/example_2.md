@@ -580,9 +580,14 @@ outer while | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMul
 
 ![](attachments/Pasted%20image%2020240319015503.png)
 
+**Примечание** если хотите покрасить все вхождения данного текста используйте кнопку **Style all occurrences of token** (она на позицию выше - и именно ее использовал автор в данном примере)
+
 ![](attachments/Pasted%20image%2020240319020529.png)
 
 Если грамотно использовать цвета - то проще буде разбирать записи. 
+
+Вывод данных я закрашивать не стал, условные и циклы я покрасил в разные цвета
+
 
 ![](attachments/Pasted%20image%2020240319020816.png)
 
@@ -590,7 +595,7 @@ outer while | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMul
 
 ![](attachments/Pasted%20image%2020240319021105.png)
 
-Далее отрабатывает условие которое проверяет (outputCounter < 33) и сбрасывает первый множитель в 2, а второй инкрементирует
+Далее отрабатывает условие которое проверяет (outputCounter < 33) и сбрасывает первый множитель в 2, а второй инкрементирует при этом ogri = 6
 
 ```cs
 if (outputCounter < 33)
@@ -601,6 +606,15 @@ if (outputCounter < 33)
     firstMultiplier = 2;
 }
 ```
+
+Переменная ogri все еще остается загадкой - можно и ее покрасить `ogri = 6`
+
+
+![](attachments/Pasted%20image%2020240319022321.png)
+
+Листаем вниз и видим, что на 92 строке `ogri = 10`
+
+Смотрим на 90 строку `outputCounter = 33` 
 
 ----
 
