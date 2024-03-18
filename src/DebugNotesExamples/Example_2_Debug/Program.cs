@@ -8,7 +8,7 @@ namespace Example_2_Debug
         static void Main(string[] args)
         {
             int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, outputCounter = 1;
-
+            ;
             while (secondMultiplier < 10)
             {
                 while (firstMultiplier < ogri)

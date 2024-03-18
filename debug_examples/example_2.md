@@ -449,7 +449,98 @@ firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri
 
 ![](attachments/Pasted%20image%2020240319011300.png)
 
+На выходе получим вот такие логи
 
+### Логи c первой точки останова
+
+```
+firstMultiplier = 2, secondMultiplier = 2, ogri = 6, outputCounter = 1
+firstMultiplier = 3, secondMultiplier = 2, ogri = 6, outputCounter = 2
+firstMultiplier = 4, secondMultiplier = 2, ogri = 6, outputCounter = 3
+firstMultiplier = 5, secondMultiplier = 2, ogri = 6, outputCounter = 4
+firstMultiplier = 2, secondMultiplier = 3, ogri = 6, outputCounter = 5
+firstMultiplier = 3, secondMultiplier = 3, ogri = 6, outputCounter = 6
+firstMultiplier = 4, secondMultiplier = 3, ogri = 6, outputCounter = 7
+firstMultiplier = 5, secondMultiplier = 3, ogri = 6, outputCounter = 8
+firstMultiplier = 2, secondMultiplier = 4, ogri = 6, outputCounter = 9
+firstMultiplier = 3, secondMultiplier = 4, ogri = 6, outputCounter = 10
+firstMultiplier = 4, secondMultiplier = 4, ogri = 6, outputCounter = 11
+firstMultiplier = 5, secondMultiplier = 4, ogri = 6, outputCounter = 12
+firstMultiplier = 2, secondMultiplier = 5, ogri = 6, outputCounter = 13
+firstMultiplier = 3, secondMultiplier = 5, ogri = 6, outputCounter = 14
+firstMultiplier = 4, secondMultiplier = 5, ogri = 6, outputCounter = 15
+firstMultiplier = 5, secondMultiplier = 5, ogri = 6, outputCounter = 16
+firstMultiplier = 2, secondMultiplier = 6, ogri = 6, outputCounter = 17
+firstMultiplier = 3, secondMultiplier = 6, ogri = 6, outputCounter = 18
+firstMultiplier = 4, secondMultiplier = 6, ogri = 6, outputCounter = 19
+firstMultiplier = 5, secondMultiplier = 6, ogri = 6, outputCounter = 20
+firstMultiplier = 2, secondMultiplier = 7, ogri = 6, outputCounter = 21
+firstMultiplier = 3, secondMultiplier = 7, ogri = 6, outputCounter = 22
+firstMultiplier = 4, secondMultiplier = 7, ogri = 6, outputCounter = 23
+firstMultiplier = 5, secondMultiplier = 7, ogri = 6, outputCounter = 24
+firstMultiplier = 2, secondMultiplier = 8, ogri = 6, outputCounter = 25
+firstMultiplier = 3, secondMultiplier = 8, ogri = 6, outputCounter = 26
+firstMultiplier = 4, secondMultiplier = 8, ogri = 6, outputCounter = 27
+firstMultiplier = 5, secondMultiplier = 8, ogri = 6, outputCounter = 28
+firstMultiplier = 2, secondMultiplier = 9, ogri = 6, outputCounter = 29
+firstMultiplier = 3, secondMultiplier = 9, ogri = 6, outputCounter = 30
+firstMultiplier = 4, secondMultiplier = 9, ogri = 6, outputCounter = 31
+firstMultiplier = 5, secondMultiplier = 9, ogri = 6, outputCounter = 32
+firstMultiplier = 6, secondMultiplier = 2, ogri = 10, outputCounter = 33
+firstMultiplier = 7, secondMultiplier = 2, ogri = 10, outputCounter = 34
+firstMultiplier = 8, secondMultiplier = 2, ogri = 10, outputCounter = 35
+firstMultiplier = 9, secondMultiplier = 2, ogri = 10, outputCounter = 36
+firstMultiplier = 6, secondMultiplier = 3, ogri = 10, outputCounter = 37
+firstMultiplier = 7, secondMultiplier = 3, ogri = 10, outputCounter = 38
+firstMultiplier = 8, secondMultiplier = 3, ogri = 10, outputCounter = 39
+firstMultiplier = 9, secondMultiplier = 3, ogri = 10, outputCounter = 40
+firstMultiplier = 6, secondMultiplier = 4, ogri = 10, outputCounter = 41
+firstMultiplier = 7, secondMultiplier = 4, ogri = 10, outputCounter = 42
+firstMultiplier = 8, secondMultiplier = 4, ogri = 10, outputCounter = 43
+firstMultiplier = 9, secondMultiplier = 4, ogri = 10, outputCounter = 44
+firstMultiplier = 6, secondMultiplier = 5, ogri = 10, outputCounter = 45
+firstMultiplier = 7, secondMultiplier = 5, ogri = 10, outputCounter = 46
+firstMultiplier = 8, secondMultiplier = 5, ogri = 10, outputCounter = 47
+firstMultiplier = 9, secondMultiplier = 5, ogri = 10, outputCounter = 48
+firstMultiplier = 6, secondMultiplier = 6, ogri = 10, outputCounter = 49
+firstMultiplier = 7, secondMultiplier = 6, ogri = 10, outputCounter = 50
+firstMultiplier = 8, secondMultiplier = 6, ogri = 10, outputCounter = 51
+firstMultiplier = 9, secondMultiplier = 6, ogri = 10, outputCounter = 52
+firstMultiplier = 6, secondMultiplier = 7, ogri = 10, outputCounter = 53
+firstMultiplier = 7, secondMultiplier = 7, ogri = 10, outputCounter = 54
+firstMultiplier = 8, secondMultiplier = 7, ogri = 10, outputCounter = 55
+firstMultiplier = 9, secondMultiplier = 7, ogri = 10, outputCounter = 56
+firstMultiplier = 6, secondMultiplier = 8, ogri = 10, outputCounter = 57
+firstMultiplier = 7, secondMultiplier = 8, ogri = 10, outputCounter = 58
+firstMultiplier = 8, secondMultiplier = 8, ogri = 10, outputCounter = 59
+firstMultiplier = 9, secondMultiplier = 8, ogri = 10, outputCounter = 60
+firstMultiplier = 6, secondMultiplier = 9, ogri = 10, outputCounter = 61
+firstMultiplier = 7, secondMultiplier = 9, ogri = 10, outputCounter = 62
+firstMultiplier = 8, secondMultiplier = 9, ogri = 10, outputCounter = 63
+firstMultiplier = 9, secondMultiplier = 9, ogri = 10, outputCounter = 64
+```
+
+Глядя на их уже можно увидеть некоторые закономерности - но картину полностью это все еще не проясняет
+
+```
+firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri = {ogri}, outputCounter = {outputCounter}
+```
+
+Что делать?
+
+Сделать больше точек останова с логами и для каждой скорректировать запись
+
+**Примечание** точки останова можно устанавливать только в строках, где есть какие либо операторы - если требуется добавить большее количество - то можно прибегнуть к хитрости и добавить пустых операторов (;)
+
+```cs
+ static void Main(string[] args)
+ {
+     int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, outputCounter = 1;
+     ; //например вот сюда
+     while (secondMultiplier < 10)
+```
+
+Ра
 
 
 ----
