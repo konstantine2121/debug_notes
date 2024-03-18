@@ -522,11 +522,6 @@ firstMultiplier = 9, secondMultiplier = 9, ogri = 10, outputCounter = 64
 
 Глядя на их уже можно увидеть некоторые закономерности - но картину полностью это все еще не проясняет
 
-
-```
-firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri = {ogri}, outputCounter = {outputCounter}
-```
-
 Что делать?
 
 Сделать больше точек останова с логами и для каждой скорректировать запись
@@ -545,11 +540,24 @@ firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri
 
 ![](attachments/Pasted%20image%2020240319013318.png)
 
+Точка останова на строке с пустым оператором `;` будет выводить значения переменных после инициализации.
+
 Точки останова которые находятся на строке с открывающим блоком кода (`{`) - будут нести информацию об условии которое проверялось выше.
 
-Точки останова которые находятся на строке с закрывающим блоком кода (`}`) - будут выводить текущие хначения переменных
+```
+while (secondMultiplier < 10) | {secondMultiplier < 10}
+while (firstMultiplier < ogri) | {firstMultiplier < ogri}
+if (outputCounter < 33) | outputCounter < 33
+else (outputCounter < 33) | outputCounter < 33
+```
 
+Точки останова которые находятся на строке с закрывающим блоком кода (`}`) - будут выводить текущие значения переменных.
 
+```
+init | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri = {ogri}, outputCounter = {outputCounter}
+inner while | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, multiplicationResult = {multiplicationResult}, outputCounter = {outputCounter}
+outer while | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri = {ogri}, outputCounter = {outputCounter}
+```
 
 
 ----
