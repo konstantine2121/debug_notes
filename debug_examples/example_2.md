@@ -522,6 +522,7 @@ firstMultiplier = 9, secondMultiplier = 9, ogri = 10, outputCounter = 64
 
 Глядя на их уже можно увидеть некоторые закономерности - но картину полностью это все еще не проясняет
 
+
 ```
 firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri = {ogri}, outputCounter = {outputCounter}
 ```
@@ -540,7 +541,15 @@ firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMultiplier}, ogri
      while (secondMultiplier < 10)
 ```
 
-Ра
+Расположение точек останова у нас будет выглядеть вот так
+
+![](attachments/Pasted%20image%2020240319013318.png)
+
+Точки останова которые находятся на строке с открывающим блоком кода (`{`) - будут нести информацию об условии которое проверялось выше.
+
+Точки останова которые находятся на строке с закрывающим блоком кода (`}`) - будут выводить текущие хначения переменных
+
+
 
 
 ----
