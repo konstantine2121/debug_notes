@@ -327,13 +327,64 @@ firstMultiplier secondMultiplier ogri outputCounter multiplicationResult
 
 ![](attachments/Pasted%20image%2020240319002311.png)
 
-Наберем `2 * 2`
+Наберем `2 * 2` и нажмем **Enter**
 
 ![](attachments/Pasted%20image%2020240319002415.png)
 
 Видим, что среда вычислила результат выражения и отобразила его в столбце Значение
 
-Также мы можем набирать 
+Также мы можем набирать длинные выражения, использовать переменные из контекста или даже вызывать функции в этой строке
+
+![](attachments/Pasted%20image%2020240319002707.png)
+
+А во время набора текста доступна среда с подсказками
+
+![](attachments/Pasted%20image%2020240319002753.png)
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+||firstMultiplier * secondMultiplier|4|int|
+
+**Примечание** Можно в любой момент поправить текст в любой строке таблицы окна **Контрольные значения** или удалить ненужные строки (клавиша Delete)
+
+Мы добавили нужные нам переменные.
+
+Также для нас представляет большой интерес и условия которые есть в условных операторах и циклах
+
+```cs
+while (secondMultiplier < 10) //Это
+{
+    while (firstMultiplier < ogri) //Это
+    {
+        int multiplicationResult = firstMultiplier * secondMultiplier;
+
+        Console.Write("{0} x {1}= {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+        
+        ++firstMultiplier;
+        ++outputCounter;
+    }
+
+    if (outputCounter < 33) //Это
+
+```
+
+Добавим же их тоже в число отслеживаемых - просто выделяем нужные куски кода и копируем в окно Контрольные значения
+
+Вот что мы отслеживаем в данный момент
+
+||Имя|Значение|Тип|
+|---|---|---|---|
+||firstMultiplier|2|int|
+||secondMultiplier|2|int|
+||multiplicationResult|4|int|
+||ogri|6|int|
+||outputCounter|1|int|
+||firstMultiplier * secondMultiplier|4|int|
+||secondMultiplier < 10|true|bool|
+||firstMultiplier < ogri|true|bool|
+||outputCounter < 33|true|bool|
+
+Во время пош
 
 
 ----
