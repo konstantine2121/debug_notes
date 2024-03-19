@@ -910,7 +910,29 @@ int ... outputCounter = 0;
 
 `4 * 8 = 32`
 
-Также приходит осознание что secondGroupLimit стоит переименовать в secondGroupLimit - так как исходя из логов мы помним, что 
+Также приходит осознание что **secondGroupLimit** стоит переименовать в **groupLimit** - так как исходя из логов мы помним, что внешний цикл работал и для первой и для второй группы.
+
+Итак смотрим еще раз на наши числа и получаем следущее
+```cs
+const int splitStep = (firstGroupLimit - multiplierStartValue) * (groupLimit - multiplierStartValue);
+// (6-2) * (10-2) = 4 * 8 = 32
+```
+
+Что еще?
+
+```cs
+int firstMultiplier = 2, secondMultiplier = 1, firstMultiplierLimit = 0, outputCounter = 0;
+```
+
+firstMultiplier присваивается неизвестная 2
+
+secondMultiplier присваивается неизвестная 1
+
+firstMultiplierLimit присваивается неизвестный 0
+
+исправляем
+
+
 
 
 ----

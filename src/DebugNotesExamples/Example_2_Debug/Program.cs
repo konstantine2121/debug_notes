@@ -13,7 +13,9 @@ namespace Example_2_Debug
             const int multiplierStartValue = 2;
             const int secondGroupStartValue = firstGroupLimit;
 
-            int firstMultiplier = 2, secondMultiplier = 1, firstMultiplierLimit = 0, outputCounter = 0;
+            const int splitStep = (firstGroupLimit - multiplierStartValue) * (groupLimit - multiplierStartValue);
+
+            int firstMultiplier = multiplierStartValue, secondMultiplier = 1, firstMultiplierLimit = 0, outputCounter = 0;
             ;
             while (secondMultiplier < groupLimit)
             {
@@ -27,7 +29,7 @@ namespace Example_2_Debug
                     ++outputCounter;
                 }
 
-                if (outputCounter < 32)
+                if (outputCounter < splitStep)
                 {
                     firstMultiplierLimit = firstGroupLimit;
                     Console.WriteLine();
@@ -40,7 +42,7 @@ namespace Example_2_Debug
                     Console.WriteLine();
                     secondMultiplier++;
                     firstMultiplier = secondGroupStartValue;
-                    if (outputCounter == 32)
+                    if (outputCounter == splitStep)
                     {
                         Console.WriteLine();
                         secondMultiplier = multiplierStartValue;
