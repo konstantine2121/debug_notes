@@ -5,13 +5,17 @@ namespace Example_2_Debug
 
     internal class Program
     {
+        private const int firstGroupLimit = 6;
+
         static void Main(string[] args)
         {
-            int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, outputCounter = 1;
+            const int multiplierStartValue = 2;
+
+            int firstMultiplier = 2, secondMultiplier = 1, firstMultiplierLimit = 0, outputCounter = 1;
             ;
             while (secondMultiplier < 10)
             {
-                while (firstMultiplier < ogri)
+                while (firstMultiplier < firstMultiplierLimit)
                 {
                     int multiplicationResult = firstMultiplier * secondMultiplier;
 
@@ -23,14 +27,14 @@ namespace Example_2_Debug
 
                 if (outputCounter < 33)
                 {
-                    ogri = 6;
+                    firstMultiplierLimit = firstGroupLimit;
                     Console.WriteLine();
                     secondMultiplier++;
-                    firstMultiplier = 2;
+                    firstMultiplier = multiplierStartValue;
                 }
                 else
                 {
-                    ogri = 10;
+                    firstMultiplierLimit = 10;
                     Console.WriteLine();
                     secondMultiplier++;
                     firstMultiplier = 6;

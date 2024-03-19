@@ -768,6 +768,114 @@ firstMultiplier = 6 - из-за того что значения перемен�
 
 Расчеты были в 16 строке, а на 20 значение firstMultiplier изменилось, а точка останова с логированием стоит на 22 строке
 
+## Рефакториг по итогам разбора логов
+
+Было
+
+```cs
+static void Main(string[] args)
+{
+    int firstMultiplier = 2, secondMultiplier = 1, ogri = 0, outputCounter = 1;
+    ;
+    while (secondMultiplier < 10)
+    {
+        while (firstMultiplier < ogri)
+        {
+            int multiplicationResult = firstMultiplier * secondMultiplier;
+
+            Console.Write("{0} x {1} = {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+            
+            ++firstMultiplier;
+            ++outputCounter;
+        }
+
+        if (outputCounter < 33)
+        {
+            ogri = 6;
+            Console.WriteLine();
+            secondMultiplier++;
+            firstMultiplier = 2;
+        }
+        else
+        {
+            ogri = 10;
+            Console.WriteLine();
+            secondMultiplier++;
+            firstMultiplier = 6;
+            if (outputCounter == 33)
+            {
+                Console.WriteLine();
+                secondMultiplier = 2;
+            }
+        }
+    }
+
+    Console.ReadKey();
+}
+```
+
+Делаем
+
+ogri -> firstMultiplierLimit
+
+Выносим все магические числа в константы
+
+Стало
+
+```cs
+static void Main(string[] args)
+{
+    const int firstGroupLimit = 6;
+    const int secondGroupLimit = 10;
+    const int multiplierStartValue = 2;
+    const int secondGroupStartValue = firstGroupLimit;
+
+    int firstMultiplier = 2, secondMultiplier = 1, firstMultiplierLimit = 0, outputCounter = 1;
+    ;
+    while (secondMultiplier < secondGroupLimit)
+    {
+        while (firstMultiplier < firstMultiplierLimit)
+        {
+            int multiplicationResult = firstMultiplier * secondMultiplier;
+
+            Console.Write("{0} x {1} = {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
+            
+            ++firstMultiplier;
+            ++outputCounter;
+        }
+
+        if (outputCounter < 33)
+        {
+            firstMultiplierLimit = firstGroupLimit;
+            Console.WriteLine();
+            secondMultiplier++;
+            firstMultiplier = multiplierStartValue;
+        }
+        else
+        {
+            firstMultiplierLimit = secondGroupLimit;
+            Console.WriteLine();
+            secondMultiplier++;
+            firstMultiplier = secondGroupStartValue;
+            if (outputCounter == 33)
+            {
+                Console.WriteLine();
+                secondMultiplier = multiplierStartValue;
+            }
+        }
+    }
+
+    Console.ReadKey();
+}
+```
+
+Что еще осталось?
+
+Правильно - магическое число 33
+
+Каким образом к нему вообще пришли?
+
+
 
 
 ----
