@@ -25,9 +25,8 @@ namespace Example_2_Debug
                 while (firstMultiplier < firstMultiplierLimit)
                 {
                     int multiplicationResult = firstMultiplier * secondMultiplier;
+                    PrintMultiplicationResult(firstMultiplier, secondMultiplier, multiplicationResult);
 
-                    Console.Write("{0} x {1} = {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
-                    
                     ++firstMultiplier;
                     ++outputCounter;
                 }
@@ -55,6 +54,11 @@ namespace Example_2_Debug
             }
 
             Console.ReadKey();
+        }
+
+        private static void PrintMultiplicationResult(int firstMultiplier, int secondMultiplier, int multiplicationResult)
+        {
+            Console.Write("{0} x {1} = {2}\t", firstMultiplier, secondMultiplier, multiplicationResult);
         }
     }
 }
