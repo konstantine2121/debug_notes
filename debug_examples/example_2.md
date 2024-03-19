@@ -586,7 +586,7 @@ outer while | firstMultiplier = {firstMultiplier}, secondMultiplier = {secondMul
 
 Если грамотно использовать цвета - то проще буде разбирать записи. 
 
-Вывод данных я закрашивать не стал, условные и циклы я покрасил в разные цвета
+Вывод данных мы закрашивать не стали, условные и циклы - покрасили в разные цвета
 
 
 ![](attachments/Pasted%20image%2020240319020816.png)
@@ -620,7 +620,7 @@ if (outputCounter < 33)
 inner while | firstMultiplier = 6, secondMultiplier = 9, multiplicationResult = 45, outputCounter = 33
 ```
 
-Подсветим также и `inner while | firstMultiplier = 6`
+Подсветим также и `inner while | firstMultiplier = 6` (желтый цвет)
 
 ![](attachments/Pasted%20image%2020240319022949.png)
 
@@ -658,7 +658,7 @@ if (outputCounter < 33)
 
 ![](attachments/Pasted%20image%2020240319024008.png)
 
-Собственно та же картина наблюдается только значения в диапазоне от 6 включительно до 10 исключительно
+Собственно та же картина наблюдается - только значения в диапазоне от 6 включительно до 10 исключительно
 
 **Вывод**
 
@@ -932,7 +932,7 @@ firstMultiplierLimit присваивается неизвестный 0
 
 исправляем
 
-```
+```cs
  int firstMultiplier = multiplierStartValue;
  int secondMultiplier = multiplierStartValue;
  int firstMultiplierLimit = firstGroupLimit;
@@ -1044,7 +1044,7 @@ private static void PrintMultiplicationRow(int firstMultiplierStart, int firstMu
 
 ![](attachments/Pasted%20image%2020240319035325.png)
 
-Выводы по тотальному рефакторингу
+## Выводы по тотальному рефакторингу
 
 Блок констант не изменялся и использовался в качестве опорных входных данных.
 
